@@ -11,9 +11,8 @@
   flex-direction: column;
   max-width: 1200px;
   margin: 30px auto;
-  padding: 20px;
-  background-color: #e6dcdc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  background-color: #FFEcd1;
   border-radius: 10px;
 
 }
@@ -34,22 +33,28 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 30px;
-  gap: 30px;
+  gap: 30px;  
 }
 
 .home-features .feature {
   text-align: center;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #483C32;
+  color: #FFECD1;
   border-radius: 8px;
   margin-bottom: 20px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 10px;
 }
 
 .home-button {
   padding: 15px 30px;
   font-size: 1.2em;
   text-decoration: none;
-  background-color: #2D9965;
+  background-color: #203B2A;
   color: #fff;
   border-radius: 8px;
   cursor: pointer;

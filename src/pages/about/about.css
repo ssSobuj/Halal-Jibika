@@ -2,9 +2,8 @@
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
-  background-color: #d8c6c6;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  background-color: #FFEcd1;
+    border-radius: 10px;
 }
 
 .about-container .title {
@@ -26,7 +25,7 @@
 }
 
 .about-container button {
-  background-color: #007bff; /* Button background color */
+  background-color: #203B2A; /* Button background color */
   color: #fff; /* Button text color */
   padding: 10px 20px;
   font-size: 1em;
@@ -37,5 +36,5 @@
 }
 
 .about-container button:hover {
-  background-color: #0056b3; /* Darker color on hover */
+  background-color: #1f5d3f; /* Darker color on hover */
 }
