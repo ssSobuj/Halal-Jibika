@@ -12,20 +12,34 @@ export default function Jobs() {
 
   return (
     <>
-      <div className="cards">
-        {jobs &&
-          jobs.map((job) => (
-            <div className="card" key={job.id}>
-              <img src={job.logo} alt="" />
-              <h4>{job.title}</h4>
-              <p>{job.companyName}</p>
-              <p>{job.positione}</p>
-              <p>{job.description}</p>
-              <Link to={`/job/${job.id}`}>
-                <button>job details</button>
-              </Link>
-            </div>
-          ))}
+      <div className="cards-container">
+        <div className="cards">
+          {jobs &&
+            jobs.map((job) => (
+              <div className="card" key={job.id}>
+                <div className="card-img">
+                  <img src={job.logo} alt="" />
+                </div>
+                <div className="card-content">
+                  <h4>
+                    <b>Company Name:</b> {job.companyName}
+                  </h4>
+                  <p>
+                    <b>Job Title:</b> {job.title}
+                  </p>
+                  <p>
+                    <b>Job Positon:</b> {job.position}
+                  </p>
+                  <p>
+                    <b>Job Dsc:</b> {job.description}
+                  </p>
+                  <Link to={`/job/${job.id}`}>
+                    <button>Job Details</button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );

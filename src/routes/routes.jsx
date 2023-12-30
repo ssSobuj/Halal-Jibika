@@ -9,8 +9,10 @@ import Login from "../pages/auth/login/Login";
 import Sinup from "../pages/auth/singup/Sinup";
 import Error from "../componets/errorPage/Error";
 import PrivateRoutes from "./PrivateRoutes";
+import Feverite from "../pages/Feverite/Feverite";
 import Jobs from "../pages/Jobs/Jobs";
-import Job from "../componets/user/Job";
+import Job from "../componets/job/Job";
+import PrivacyPolicy from "../componets/PrivacyPolicy/PrivacyPolicy";
 
 export const routes = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const routes = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "feverite",
+        element: <Feverite />
+      },      
+      {
+        path: "privacyPolicy",
+        element: <PrivacyPolicy />
       },
       {
         path: "jobs",

@@ -1,0 +1,54 @@
+.job-container{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.job-container .single-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 10px;  
+}
+.job-container .job-content{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 10px;
+}
+
+.job-content h4{
+  color: #e74c3c;
+}
+.job-container .single-card img {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 15px;
+}
+
+
+.job-container .single-card button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all ease 0.5s;
+  margin-top: 10px;
+}
+
+.job-container .single-card button:hover {
+  background-color: #c7200d;
+}
+

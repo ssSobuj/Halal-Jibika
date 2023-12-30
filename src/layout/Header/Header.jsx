@@ -16,7 +16,7 @@ export default function Header() {
       <div className="header-wrap">
         <nav>
           <div className="logo">            
-             <img src="/public/logo.png" alt="" />            
+             <img src="/public/logo-removebg.png" alt="" />            
           </div>
           <div className="main-menu">
             <ul>

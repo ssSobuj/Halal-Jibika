@@ -1,0 +1,35 @@
+/* PrivacyPolicy.css */
+.privacy-container{
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.privacy {
+  width: 70%;
+  height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;  
+  gap: 5px;
+  align-items: center;
+  text-align: center;
+  background-color: #d9c9b9; /* Change the background color here */
+  padding:30px 20px;
+  border-radius: 5px;
+}
+
+.privacy h2 {
+  color: #333;
+}
+
+.privacy p {
+  line-height: 1.6;
+  color: #666;
+}

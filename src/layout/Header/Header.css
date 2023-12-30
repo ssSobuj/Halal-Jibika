@@ -49,6 +49,7 @@ nav ul {
   text-decoration: none;
   padding: 10px;
   font-size: large;  
+  transition: all 0.5s ease;
 }
 .nav-link:hover {
   background-color: #C0C0C0;

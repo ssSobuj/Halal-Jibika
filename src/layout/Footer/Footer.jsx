@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./footer.css";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -19,16 +20,16 @@ export default function Footer() {
             <h4>Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <a href="#">Home</a>
+                <Link to={'/'}>Home</Link>
               </li>
               <li>
-                <a href="#">Products</a>
+                <Link to={'jobs'}>Jobs</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link to={'contact'}>Contact Us</Link>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <Link to={'privacyPolicy'}>Privacy Policy</Link>
               </li>
             </ul>
           </div>
