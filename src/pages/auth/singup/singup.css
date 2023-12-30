@@ -1,0 +1,68 @@
+.signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #001f3f; /* Text color */
+}
+
+.signup-container .title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.signup-container .signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.signup-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-form button {
+  background-color: #28a745; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-form button:hover {
+  background-color: #218838; /* Darker color on hover */
+}
+
+
+.goback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.signup-container .goback button{
+  background-color: #56a70b; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-container .goback button:hover {
+  background-color: #007BFF; /* Darker color on hover */
+}

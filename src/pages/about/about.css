@@ -1,0 +1,41 @@
+.about-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #d8c6c6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.about-container .title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #001f3f;
+}
+
+.about-container .description {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #004080;
+}
+
+.about-container .p {
+  font-size: 1.1em;
+  color: #001f3f;
+  margin-bottom: 15px;
+}
+
+.about-container button {
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.about-container button:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
