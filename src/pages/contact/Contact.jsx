@@ -3,7 +3,7 @@ import "./contact.css";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact";
+    document.title = "Contact || Halal Jibika" ;
   });
   return (
     <>

@@ -15,7 +15,7 @@ import Loading from "./../../../componets/loaading/Loading";
 
 export default function Sinup() {
   useEffect(() => {
-    document.title = "Sinup";
+    document.title = "Signup || Halal Jibika";
   });
   const naviget = useNavigate();
   const goBackToHome = () => {

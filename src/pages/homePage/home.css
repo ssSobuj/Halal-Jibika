@@ -12,20 +12,67 @@
   max-width: 1200px;
   margin: 30px auto;
   padding: 20px 30px;
-  background-color: #ffecd1;
   border-radius: 10px;
 }
 
-.home-container .title {
+.home-container .title h2 {
   font-size: 3em;
-  margin-bottom: 20px;
-  color: #333;
+  color: #000;
+  color: #174e17;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  font-weight: 600;
+  display: inline;
+  background: -webkit-linear-gradient(#06c606, #017f21);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .home-container .description {
-  font-size: 1.5em;
+  font-size: 20px;
   margin-bottom: 30px;
-  color: #666;
+  color: #000;
+  color: #404040;
+  font-weight: 400;
+  background: -webkit-linear-gradient(#030503, #3c2828);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color: #DEC74F;
+  color: #fff; */
+  padding: 20px;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+.home-container .title {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #404040;
+}
+
+.home-container .hero-section .explor-button {
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 15px 12px;
+  font-size: 16px;
+  background-color: #008000;
+  margin-left: 20px;
+}
+
+.home-container .hero-section .explor-button:hover {
+  background-color: #56A856;
+}
+
+.hero-section {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.hero-section .hero-img img {
+  width: 500px;
 }
 
 .home-features {
@@ -39,10 +86,11 @@
   text-align: center;
   padding: 20px;
   background-color: #483c32;
-  color: #ffecd1;
+  background-color: rgb(72, 60, 50, 0.1);
+  color: #0a72c6;
   border-radius: 8px;
   margin-bottom: 20px;
-  height: 200px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   text-align: start;

@@ -12,7 +12,7 @@ import Loading from "../../../componets/loaading/Loading";
 
 export default function Login() {
   useEffect(() => {
-    document.title = "Login";
+    document.title = "SingIn || Halal Jibika";
   });
   const navigate = useNavigate();
 

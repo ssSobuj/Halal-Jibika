@@ -96,14 +96,12 @@ nav ul li {
 }
 
 .navbar {
-  height: 60px;
-  background-color: #fef7e5;
-  background: #16212a;
+  height: 80px;
   position: relative;
 }
 
 .logo img {
-  width: 60px;
+  width: 85px;
 }
 
 .menu-icon {
@@ -133,14 +131,15 @@ nav ul li {
 }
 
 .nav-elements ul a {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   color: #eccdcd;
+  color: black;
   text-decoration: none;
 }
 
 .nav-elements ul a.active {
-  color: #d1cc53;
+  color: green;
   font-weight: 500;
   position: relative;
 }
