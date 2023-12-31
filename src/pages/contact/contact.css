@@ -1,8 +1,8 @@
 .contact-container {
   max-width: 800px;
   margin: 30px auto;
-  padding: 20px;
-  background-color: #f1dcdc;
+  padding: 30px;
+  background-color: #dcc48d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   color: #001f3f; /* Text color */
@@ -37,7 +37,7 @@ textarea {
 }
 
 .contact-form button {
-  background-color: #007bff; /* Button background color */
+  background-color: #1f3929; /* Button background color */
   color: #fff; /* Button text color */
   padding: 10px 20px;
   font-size: 1em;
@@ -48,17 +48,16 @@ textarea {
 }
 
 .contact-form button:hover {
-  background-color: #0056b3;
+  background-color: #3e5d4a;
 }
-.contact-cards{
+.contact-cards {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-
+  justify-content: space-around;
 }
 
 .contact-card {
-  border: 1px solid #ddd;
+  border: 1px solid #1f3929;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;

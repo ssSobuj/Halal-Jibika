@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./home.css";
+import Hero from "../../componets/Hero/Hero";
 
 export default function Home() {
   useEffect(() => {
@@ -10,7 +11,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="home-container">
+    <Hero />
+      {/* <div className="home-container">
         <h2 className="title">Welcome To Halal Jibika</h2>
         <p className="description">
           At Halal Jibika, we are committed to providing you with a seamless and
@@ -63,7 +65,7 @@ export default function Home() {
             Job History
           </Link>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

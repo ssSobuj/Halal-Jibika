@@ -12,9 +12,8 @@
   max-width: 1200px;
   margin: 30px auto;
   padding: 20px 30px;
-  background-color: #FFEcd1;
+  background-color: #ffecd1;
   border-radius: 10px;
-
 }
 
 .home-container .title {
@@ -33,14 +32,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 30px;
-  gap: 30px;  
+  gap: 30px;
 }
 
 .home-features .feature {
   text-align: center;
   padding: 20px;
-  background-color: #483C32;
-  color: #FFECD1;
+  background-color: #483c32;
+  color: #ffecd1;
   border-radius: 8px;
   margin-bottom: 20px;
   height: 200px;
@@ -54,7 +53,7 @@
   padding: 15px 30px;
   font-size: 1.2em;
   text-decoration: none;
-  background-color: #203B2A;
+  background-color: #203b2a;
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
@@ -70,7 +69,6 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
-
 }
 
 @media (max-width: 768px) {

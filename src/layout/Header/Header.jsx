@@ -3,6 +3,8 @@ import "./Header.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.config";
 import { signOut } from "firebase/auth";
+import { useState } from "react";
+import { AiOutlineMenuFold } from "react-icons/ai";
 
 export default function Header() {
   const [user] = useAuthState(auth);
@@ -11,12 +13,17 @@ export default function Header() {
     signOut(auth);
   };
 
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+  };
   return (
     <>
-      <div className="header-wrap">
+      {/* <div className="header-wrap">
         <nav>
-          <div className="logo">            
-             <img src="/public/logo-removebg.png" alt="" />            
+          <div className="logo">
+            <img src="/public/logo-removebg.png" alt="" />
           </div>
           <div className="main-menu">
             <ul>
@@ -37,12 +44,12 @@ export default function Header() {
               </li>
               <li>
                 <NavLink className="nav-link" to={"./jobs"}>
-                Jobs
+                  Jobs
                 </NavLink>
               </li>
               <li>
                 <NavLink className="nav-link" to={"./feverite"}>
-                Favorite
+                  Favorite
                 </NavLink>
               </li>
               {user ? (
@@ -62,7 +69,53 @@ export default function Header() {
             </ul>
           </div>
         </nav>
-      </div>
+      </div> */}
+      <nav className="navbar">
+        <div className="container">
+          <div className="logo">
+            <img src="/public/logo-removebg.png" alt="" />
+          </div>
+          <div className="menu-icon" onClick={handleShowNavbar}>
+            <AiOutlineMenuFold />
+          </div>
+          <div className={`nav-elements  ${showNavbar && "active"}`}>
+            <ul>
+              <li onClick={handleShowNavbar}>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li onClick={handleShowNavbar}>
+                <NavLink to="/about">About</NavLink>
+              </li>
+              <li onClick={handleShowNavbar}>
+                <NavLink to="/jobs">Jobs</NavLink>
+              </li>
+              <li onClick={handleShowNavbar}>
+                <NavLink to="/feverite">Favorite</NavLink>
+              </li>
+              <li onClick={handleShowNavbar}>
+                <NavLink to="/contact">Contact</NavLink>
+              </li>
+              {user ? (
+                <li>
+                  <Link onClick={logOut}>Sign Out</Link>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to={"./login"}>Sign In</NavLink>
+                </li>
+              )}
+              <li className="user-logo">
+                {user?.photoURL && (
+                  <>
+                    <img src={user?.photoURL} alt="" />
+                    <h5>{user?.displayName}</h5>
+                  </>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </>
   );
 }

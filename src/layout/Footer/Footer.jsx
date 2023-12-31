@@ -20,16 +20,16 @@ export default function Footer() {
             <h4>Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <Link to={'/'}>Home</Link>
+                <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={'jobs'}>Jobs</Link>
+                <Link to={"jobs"}>Jobs</Link>
               </li>
               <li>
-                <Link to={'contact'}>Contact Us</Link>
+                <Link to={"contact"}>Contact Us</Link>
               </li>
               <li>
-                <Link to={'privacyPolicy'}>Privacy Policy</Link>
+                <Link to={"privacyPolicy"}>Privacy Policy</Link>
               </li>
             </ul>
           </div>
@@ -38,13 +38,16 @@ export default function Footer() {
             <h4>Follow Us</h4>
             <div className="footer-social">
               <a href="#" target="_blank">
-                <FaFacebook /> Facebook
+                <span>
+                  <FaFacebook />
+                </span>{" "}
+                <span>Facebook</span>
               </a>
               <a href="#" target="_blank">
-                <FaTwitter /> Twitter
+                <span><FaTwitter /></span> <span>Twitter</span>
               </a>
               <a href="#" target="_blank">
-                <FaInstagram /> Instagram
+                <span><FaInstagram /></span> <span>Instagram</span>
               </a>
             </div>
           </div>
