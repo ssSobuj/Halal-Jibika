@@ -13,6 +13,7 @@ export default function Login() {
   useEffect(() => {
     document.title = "SingIn || Halal Jibika";
   });
+  const navigate = useNavigate()
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);

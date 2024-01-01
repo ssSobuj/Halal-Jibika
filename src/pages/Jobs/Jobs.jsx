@@ -3,14 +3,14 @@ import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaEdit, FaHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import './jobs.css'
+import "./jobs.css";
 
 export default function Jobs() {
   useEffect(() => {
     document.title = "Jobs";
     console.log(jobs);
   });
-
+  
   const jobs = useLoaderData();
 
   return (

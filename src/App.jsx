@@ -4,7 +4,7 @@ import MainLayut from "./layout/mainlayOut/MainLayut";
 function App() {
   return (
     <main>
-      <MainLayut />
+        <MainLayut /> 
     </main>
   );
 }

@@ -13,6 +13,7 @@ import Feverite from "../pages/Feverite/Feverite";
 import Jobs from "../pages/Jobs/Jobs";
 import Job from "../componets/job/Job";
 import PrivacyPolicy from "../componets/PrivacyPolicy/PrivacyPolicy";
+import PostJob from "../pages/PostJob/PostJob";
 
 export const routes = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const routes = createBrowserRouter([
       {
         path: "privacyPolicy",
         element: <PrivacyPolicy />,
+      },
+      {
+        path: "postjob",
+        element: <PostJob />,
       },
       {
         path: "jobs",

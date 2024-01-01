@@ -20,7 +20,7 @@ export default function About() {
         <h2 className="title">About Halal Jibika Jobs</h2>
         <div className="first-section">
           <div>
-            <img src="/public/aboutUs.png" alt="" />
+            <img src="./aboutUs.png" alt="" />
           </div>
           <div className="description-div">
             <p className="description">

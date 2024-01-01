@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import "./contact.css";
+import Feverite from "../Feverite/Feverite";
 
 export default function Contact() {
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Contact() {
           <div className="contact-card">
             <h3>Contact Information</h3>
             <p>
-              <strong>Email:</strong> mdsobujredoy@gmail.com <br />
+              <strong>Email:</strong>sbjPrograming@gmail.com <br />
               <strong>Phone:</strong> +08801731620933 <br />
               <strong>Address:</strong> Beraid Dhaka
             </p>
@@ -36,8 +37,10 @@ export default function Contact() {
             <h3>Company Contact</h3>
             <p>
               <strong>CEO:</strong> Md Sobuj Hridoy <br />
-              <strong>Email:</strong> sbjPrograming@gmail.com <br />
-              <strong>WhatsApp:</strong> +08801756425845
+              <strong>Email:</strong> mdsobujredoy@gmail.com
+              <br />
+              <strong>WhatsApp:</strong> +8801756425845
+              <br />
             </p>
           </div>
         </div>
@@ -64,7 +67,7 @@ export default function Contact() {
           <textarea
             id="message"
             name="message"
-            placeholder="Type your message"            
+            placeholder="Type your message"
           ></textarea>
 
           <button type="submit">Submit</button>

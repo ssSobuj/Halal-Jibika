@@ -8,7 +8,6 @@ import { AiOutlineMenuFold } from "react-icons/ai";
 
 export default function Header() {
   const [user] = useAuthState(auth);
-  console.log(user);
   const logOut = () => {
     signOut(auth);
   };
