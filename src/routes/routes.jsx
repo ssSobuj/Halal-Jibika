@@ -57,15 +57,15 @@ export const routes = createBrowserRouter([
 
         errorElement: <Error />,
       },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "singup",
+        element: <Sinup />,
+      },
     ],
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "singup",
-    element: <Sinup />,
   },
   {
     path: "*",

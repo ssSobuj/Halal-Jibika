@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 80px;
 }
 .first-section {
   display: flex;
@@ -66,18 +67,27 @@
 }
 .job-container .single-card .inner-cards {
   display: flex;
-  gap: 20px;
 }
 .job-container .single-card .inner-cards .inner-card {
-  background-color: #CBDFAF;
-  padding: 15px;
-  border-radius: 5px;  
   color: #000;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 50%;
+}
+.job-container .single-card .inner-cards .inner-card-1{
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+}
+.inner-card-2{
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border-left: 1px solid gray;
 }
 
 .job-container .single-card button:hover {

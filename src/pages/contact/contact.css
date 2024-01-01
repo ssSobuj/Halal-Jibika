@@ -1,7 +1,7 @@
 .contact-container {
   max-width: 800px;
-  margin: 30px auto;
-  padding: 30px;
+  margin: 0 auto;
+  padding: 120px 0 50px 0;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   border-radius: 10px;
   color: #001f3f; /* Text color */

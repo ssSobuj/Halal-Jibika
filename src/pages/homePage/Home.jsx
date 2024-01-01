@@ -33,8 +33,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="cards-container">
-          <h1 className="cards-heading">Latest Jobs</h1>
+        <div className="home-cards-container">
+          <div className="cards-heading">
+            <h1>Latest Jobs</h1>
+          </div>
           <div className="cards">
             {jobdetails &&
               jobdetails.slice(0, 4).map((job) => (

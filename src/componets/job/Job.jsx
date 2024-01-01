@@ -33,7 +33,7 @@ export default function Job() {
               </div>
             </div>
             <div className="inner-cards">
-              <div className="inner-card">
+              <div className="inner-card inner-card-1">
                 <h3>Job Responsibilities</h3>
                 <p>
                   Delivering a pleasing, clear voice that effectively conveys
@@ -41,7 +41,7 @@ export default function Job() {
                   ensure proper intonation, pace, and emphasis.
                 </p>
               </div>
-              <div className="inner-card">
+              <div className="inner-card inner-card-2" >
                 <h3>Job Requirements</h3>
                 <p>
                   Ability to work independently in a fast-paced environment.

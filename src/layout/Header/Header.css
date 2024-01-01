@@ -1,7 +1,11 @@
 .navbar {
   height: 80px;
-  position: relative;
   border-bottom: 3px solid #04ab11;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 9999;
+
 }
 .navbar .container {
   max-width: 1230px;
