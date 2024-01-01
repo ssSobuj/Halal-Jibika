@@ -22,6 +22,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "about",
@@ -33,15 +34,19 @@ export const routes = createBrowserRouter([
       },
       {
         path: "feverite",
-        element: <Feverite />
-      },      
+        element: <Feverite />,
+      },
       {
         path: "privacyPolicy",
-        element: <PrivacyPolicy />
+        element: <PrivacyPolicy />,
       },
       {
         path: "jobs",
-        element: <PrivateRoutes><Jobs /></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <Jobs />
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:9000/jobs"),
       },
       {

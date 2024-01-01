@@ -41,7 +41,7 @@ export default function Login() {
 
   if (user) {
     navigate(from, { replace: true });
-    toast.success(`Log in successfully`, {
+     toast.success(`Log in successfully`, {
       toastId: "success1",
     });
   }
@@ -53,59 +53,10 @@ export default function Login() {
     await signInWithEmailAndPassword(email, password);
   };
 
-  //use form////
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
-  // const onsubmit = async (data) => {
-  //   const email = data.Email;
-  //   const password = data.Password;
-  //   // console.log(email, password);
-  //   try {
-  //     await signInWithEmailAndPassword(email, password);
-  //     toast.success("Sing in successfully");
-  //   } catch {
-  //     toast.error("Error creating user");
-  //   }
-  // };
-  // console.log(user);
-
+  
   return (
     <>
-      {/* <div className="login-container">
-        <h2 className="title">Login</h2>
-        <p>
-          You Do not have an acount <Link to={"/singup"}>Create an aconut</Link>{" "}
-        </p>
-        <form className="login-form" onSubmit={handleSubmit(onsubmit)}>
-          <label htmlFor="email">email:</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
-          />
-
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            {...register("Password", {})}
-          />
-
-          <div className="login-btn-div">
-            <button>Login</button>
-          </div>
-        </form>
-        <div>
-          <button>Sign up with google</button>
-          <button>Sign up with GitHub</button>
-        </div>
-      </div> */}
-
+      
       <div className="login-container">
         <h2 className="title">Login</h2>
         <p>

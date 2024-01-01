@@ -1,18 +1,17 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useLoaderData } from "react-router-dom";
 import "./home.css";
-import Card from "../../componets/cardDesign/Card";
-// import Hero from "../../componets/Hero/Hero";
+import { FaHeart } from "react-icons/fa";
 
 export default function Home() {
   useEffect(() => {
     document.title = "Home || Halal Jibika";
+    console.log(jobdetails);
   });
+  const jobdetails = useLoaderData();
 
   return (
     <>
-      {/* <Hero /> */}
       <div className="home-container">
         <div className="hero-section">
           <div className="hero-img">
@@ -34,66 +33,42 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="home-features">
-          <div className="feature">
-            <h3>
-              <b>Company Name:</b> Microsoft
-            </h3>
-            <p>
-              <b>Position:</b> Senior Developer
-            </p>
-            <p>
-              <b>Title:</b> Microsoft Senior Development Program
-            </p>
-            <p>
-              <b>Description: </b> This is a junior developer recruitment from
-              Microsoft
-            </p>{" "}
-            <button className="btn-primary">Apply Now</button>
-          </div>
-
-          <div className="feature">
-            <h3>
-              <b>Company Name:</b> Microsoft
-            </h3>
-            <p>
-              <b>Position:</b> Senior Developer
-            </p>
-            <p>
-              <b>Title:</b> Microsoft Senior Development Program
-            </p>
-            <p>
-              <b>Description: </b> This is a junior developer recruitment from
-              Microsoft
-            </p>{" "}
-            <button className="btn-primary">Apply Now</button>
-          </div>
-          <div className="feature">
-            <h3>
-              <b>Company Name:</b> Microsoft
-            </h3>
-            <p>
-              <b>Position:</b> Senior Developer
-            </p>
-            <p>
-              <b>Title:</b> Microsoft Senior Development Program
-            </p>
-            <p>
-              <b>Description: </b> This is a junior developer recruitment from
-              Microsoft
-            </p>{" "}
-            <button className="btn-primary">Apply Now</button>
+        <div className="cards-container">
+          <h1 className="cards-heading">Latest Jobs</h1>
+          <div className="cards">
+            {jobdetails &&
+              jobdetails.slice(0, 4).map((job) => (
+                // eslint-disable-next-line react/jsx-key
+                <div className="card" key={job.id}>
+                  <Link to={`/job/${job.id}`}>
+                    <div className="card-img">
+                      <img src={job.logo} alt="" />
+                    </div>
+                  </Link>
+                  <div className="card-content">
+                    <Link to={`/job/${job.id}`}>
+                      <h4>
+                        <b>Company Name:</b> {job.companyName}
+                      </h4>
+                      <p>
+                        <b>Job Title:</b> {job.title}
+                      </p>
+                      <p>
+                        <b>Job Positon:</b> {job.position}
+                      </p>
+                      <p>
+                        <b>Job Dsc:</b> {job.description}
+                      </p>
+                    </Link>
+                    <div className="card-deteils-button">
+                      <button className="deteils-button">Apply</button>
+                      <FaHeart className="love" />
+                    </div>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
-        {/* <div className="btn-div">
-          <Link to="/singup" className="home-button">
-            Explore All Jobs
-          </Link>
-          <Link to="/jobs" className="home-button">
-            Job History
-          </Link>
-        </div> */}
-        {/* <Card /> */}
       </div>
     </>
   );

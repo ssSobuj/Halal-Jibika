@@ -1,54 +1,85 @@
-.job-container{
+.job-container {
   width: 100%;
   height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.first-section {
+  display: flex;
+  align-items: center;
+}
 
 .job-container .single-card {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   overflow: hidden;
-  width: 500px;
-  height: 500px;
+  width: 900px;
+  height: 450px;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
-  margin: 10px;  
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.job-container .job-content{
+.job-container .job-content {
   display: flex;
   flex-direction: column;
   text-align: start;
   gap: 10px;
 }
 
-.job-content h4{
-  color: #e74c3c;
+.job-content h4 {
+  color: #00321f;
 }
-.job-container .single-card img {
-  width: 100%;
-  height: 250px;
-  margin-bottom: 15px;
+.first-section .job-img {
+  width: 40%;
 }
-
+.first-section .job-img img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.single-card-btn{
+  display: flex;
+  gap: 20px;
+}
+.single-card-btn button{
+  width: 50%;
+}
 
 .job-container .single-card button {
-  background-color: #e74c3c;
+  background-color: #04ab11;
   color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 10px;
-  transition: all ease 0.5s;
+  transition: all ease 0.8s;
   margin-top: 10px;
+}
+.job-container .single-card .inner-cards {
+  display: flex;
+  gap: 20px;
+}
+.job-container .single-card .inner-cards .inner-card {
+  background-color: #CBDFAF;
+  padding: 15px;
+  border-radius: 5px;  
+  color: #000;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
 }
 
 .job-container .single-card button:hover {
-  background-color: #c7200d;
+  background-color: #00321f;
 }
-

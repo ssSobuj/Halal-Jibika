@@ -54,7 +54,11 @@ export default function Header() {
                       <Link onClick={logOut}>Sign Out</Link>
                     </li>
                     <li className="user-logo">
-                      {user?.photoURL && <img src={user?.photoURL} alt="" />}
+                      {user?.photoURL ? (
+                        <img src={user?.photoURL} alt="" />
+                      ) : (
+                        <h5>{user?.displayName}</h5>
+                      )}
                     </li>
                   </>
                 ) : (

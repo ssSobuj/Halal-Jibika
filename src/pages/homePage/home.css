@@ -63,7 +63,7 @@
 }
 
 .home-container .hero-section .explor-button:hover {
-  background-color: #56A856;
+  background-color: #56a856;
 }
 
 .hero-section {
@@ -118,6 +118,52 @@
   justify-content: center;
   gap: 50px;
 }
+
+.cards-heading {
+  background: -webkit-linear-gradient(#06c606, #017f21);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  margin-bottom: 20px;
+  border-top: 2px solid #008000;
+  border-bottom: 2px solid #008000;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.card-deteils-button{
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.card{
+  position: relative;
+}
+.card-deteils-button .deteils-button {
+  background-color: #00321f;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.5s ease all;  
+  width: 250px;
+}
+.card-deteils-button .love{
+  font-size: 30px;
+  position: absolute;
+  right: 40px;
+  top: 29px;
+  color: #9d0240;
+  cursor: pointer;
+}
+.card-deteils-button .love:hover{
+  color: #FF00A9;
+
+}
+
 
 @media (max-width: 768px) {
   .features {
