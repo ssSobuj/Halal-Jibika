@@ -1,10 +1,19 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import "./contact.css";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact || Halal Jibika" ;
+    document.title = "Contact || Halal Jibika";
   });
+  const handleInputFocus = () => {
+    // Scroll down by 200px when the input is focused
+    window.scrollTo({
+      top: window.scrollY + 200,
+      behavior: "smooth", // You can also use 'auto' for instant scrolling
+    });
+  };
+
   return (
     <>
       <div className="contact-container">
@@ -26,7 +35,7 @@ export default function Contact() {
           <div className="contact-card">
             <h3>Company Contact</h3>
             <p>
-              <strong>Contact Name:</strong> Md Sobuj Hridoy <br />
+              <strong>CEO:</strong> Md Sobuj Hridoy <br />
               <strong>Email:</strong> sbjPrograming@gmail.com <br />
               <strong>WhatsApp:</strong> +08801756425845
             </p>
@@ -39,6 +48,7 @@ export default function Contact() {
             id="name"
             name="name"
             placeholder="Enter your name"
+            onFocus={handleInputFocus}
           />
 
           <label htmlFor="email">Your Email:</label>
@@ -47,13 +57,14 @@ export default function Contact() {
             id="email"
             name="email"
             placeholder="Enter your email"
+            onFocus={handleInputFocus}
           />
 
           <label htmlFor="message">Your Message:</label>
           <textarea
             id="message"
             name="message"
-            placeholder="Type your message"
+            placeholder="Type your message"            
           ></textarea>
 
           <button type="submit">Submit</button>
