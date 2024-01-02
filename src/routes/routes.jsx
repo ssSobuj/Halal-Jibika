@@ -14,6 +14,8 @@ import Jobs from "../pages/Jobs/Jobs";
 import Job from "../componets/job/Job";
 import PrivacyPolicy from "../componets/PrivacyPolicy/PrivacyPolicy";
 import PostJob from "../pages/PostJob/PostJob";
+import EditJob from "../pages/EditJob/EditJob";
+import Apply from "../pages/Apply/Apply";
 
 export const routes = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ export const routes = createBrowserRouter([
       {
         path: "postjob",
         element: <PostJob />,
+      },
+      {
+        path: "editjob",
+        element: <EditJob />,
+      },
+      {
+        path: "apply",
+        element: <Apply />,
       },
       {
         path: "jobs",

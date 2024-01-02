@@ -3,7 +3,9 @@ import "./privacyPolicy.css";
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-container">
+
       <section className="privacy">
+        <h1>Privacy Policy</h1>
         <h2>Introduction</h2>
         <p>
           Welcome to Halal Jibika, a job website dedicated to providing

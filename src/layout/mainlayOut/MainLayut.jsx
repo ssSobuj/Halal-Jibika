@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "./../Footer/Footer";
@@ -6,12 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { createContext, useState } from "react";
 
-export const FavoritContext = createContext();
+export const glovalContext = createContext();
 
 export default function MainLayut() {
   const navigetion = useNavigation();
-  
+
   const [favoritJobs, setFavoritJobs] = useState([]);
+  const [editJob, setEditJob] = useState(null);
+
+  const isfavorit = (id) => favoritJobs.some((favJob) => favJob.id === id);
   const addTofavorit = (job) => {
     const isAlredyFavorit = favoritJobs.some((item) => item.id === job.id);
     if (isAlredyFavorit) {
@@ -23,12 +27,14 @@ export default function MainLayut() {
 
   return (
     <div>
-      <FavoritContext.Provider value={{ addTofavorit, favoritJobs }}>
+      <glovalContext.Provider
+        value={{ addTofavorit, favoritJobs, isfavorit, setEditJob, editJob }}
+      >
         <Header />
         <div>{navigetion.state === "loading" ? <Loading /> : <Outlet />}</div>
         <ToastContainer />
         <Footer />
-      </FavoritContext.Provider>
+      </glovalContext.Provider>
     </div>
   );
 }

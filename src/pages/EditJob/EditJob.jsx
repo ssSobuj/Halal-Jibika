@@ -1,23 +1,26 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-export default function PostJob() {
-  const navigate = useNavigate();
-  const [postJobs, SetPostJobs] = useState({
-    title: "",
-    logo: "",
-    companyName: "",
-    position: "",
-    description: "",
+export default function EditJob() {
+  const { editJob } = useContext(glovalContext);
+  const navigate = useNavigate()
+
+  const [editedJob, setEditedJob] = useState({
+    title: editJob?.title || "",
+    logo: editJob?.logo || "",
+    companyName: editJob?.companyName || "",
+    position: editJob?.position || "",
+    description: editJob?.description || "",
   });
 
-  const postData = async () => {
+  const handleEditJobSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      await axios.post("http://localhost:9000/jobs", postJobs);
-      navigate("/jobs");
+      await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
+      navigate('/jobs')
     } catch (error) {
       console.error("Error:", error);
     }
@@ -27,8 +30,8 @@ export default function PostJob() {
     <>
       <div className="signup-main-container">
         <div className="signup-container">
-          <h2 className="title">Post New Job</h2>
-          <form className="signup-form" onSubmit={postData}>
+          <h2 className="title">Edit Your job</h2>
+          <form className="signup-form" onSubmit={handleEditJobSubmit}>
             <label htmlFor="title">Job Title:</label>
             <input
               type="text"
@@ -36,8 +39,9 @@ export default function PostJob() {
               id="title"
               name="title"
               placeholder="Enter Job Title"
+              value={editedJob.title}
               onChange={(e) => {
-                SetPostJobs({ ...postJobs, title: e.target.value });
+                setEditedJob({ ...editedJob, title: e.target.value });
               }}
             />
             <label htmlFor="logo">Logo:</label>
@@ -47,8 +51,9 @@ export default function PostJob() {
               id="logo"
               name="logo"
               placeholder="Enter your Profile url"
+              value={editedJob.logo}
               onChange={(e) => {
-                SetPostJobs({ ...postJobs, logo: e.target.value });
+                setEditedJob({ ...editedJob, logo: e.target.value });
               }}
             />
 
@@ -59,8 +64,9 @@ export default function PostJob() {
               id="companyName"
               name="companyName"
               placeholder="Enter your Company Name"
+              value={editedJob.companyName}
               onChange={(e) => {
-                SetPostJobs({ ...postJobs, companyName: e.target.value });
+                setEditedJob({ ...editedJob, companyName: e.target.value });
               }}
             />
 
@@ -71,8 +77,9 @@ export default function PostJob() {
               id="position"
               name="position"
               placeholder="Confirm your yob position"
+              value={editedJob.position}
               onChange={(e) => {
-                SetPostJobs({ ...postJobs, position: e.target.value });
+                setEditedJob({ ...editedJob, position: e.target.value });
               }}
             />
             <label htmlFor="description">Description</label>
@@ -82,11 +89,12 @@ export default function PostJob() {
               id="description"
               name="description"
               placeholder="Job Description"
+              value={editedJob.description}
               onChange={(e) => {
-                SetPostJobs({ ...postJobs, description: e.target.value });
+                setEditedJob({ ...editedJob, description: e.target.value });
               }}
             />
-            <button type="submit">Post Job</button>
+            <button type="submit">Edit Job</button>
           </form>
         </div>
       </div>

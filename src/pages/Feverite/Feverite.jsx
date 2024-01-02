@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { FavoritContext } from "../../layout/mainlayOut/MainLayut";
-import { FaEdit, FaHeart } from "react-icons/fa";
+import { glovalContext } from "../../layout/mainlayOut/MainLayut";
+import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ export default function Feverite() {
   useEffect(() => {
     document.title = "Feverite || Halal Jibika";
   });
-  const { favoritJobs } = useContext(FavoritContext);
+  const { favoritJobs,isfavorit,addTofavorit } = useContext(glovalContext);
 
   return (
     <>
@@ -41,7 +41,17 @@ export default function Feverite() {
                   <div className="card-button">
                     <button>Apply</button>
                     <div className="react-icon">
-                      <FaHeart className="love" />
+                    {!isfavorit(job.id) ? (
+                          <FaRegHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        ) : (
+                          <FaHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        )}
                       <FaEdit className="edit" />
                       <MdDelete className="delet" />
                     </div>

@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./home.css";
-import { FaHeart } from "react-icons/fa";
-import { FavoritContext } from "../../layout/mainlayOut/MainLayut";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 
 export default function Home() {
   useEffect(() => {
@@ -10,7 +10,7 @@ export default function Home() {
   });
   const jobdetails = useLoaderData();
 
-  const { addTofavorit } = useContext(FavoritContext);
+  const { addTofavorit, isfavorit } = useContext(glovalContext);
 
   return (
     <>
@@ -70,10 +70,18 @@ export default function Home() {
                       </Link>
                       <div className="card-deteils-button">
                         <button className="deteils-button">Apply</button>
-                        <FaHeart
-                          className="love"
-                          onClick={() => addTofavorit(job)}
-                        />
+
+                        {!isfavorit(job.id) ? (
+                          <FaRegHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        ) : (
+                          <FaHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        )}
                       </div>
                     </div>
                   </>

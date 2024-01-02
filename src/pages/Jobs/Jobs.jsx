@@ -1,28 +1,50 @@
-import { useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { FaEdit, FaHeart } from "react-icons/fa";
+/* eslint-disable no-unused-vars */
+import { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import "./jobs.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 
 export default function Jobs() {
-  const jobs = useLoaderData();
+  const data = useLoaderData();
+  const [jobs, setJobs] = useState(data);
+  const { setEditJob,isfavorit,addTofavorit } = useContext(glovalContext);
+  const naviget = useNavigate() 
+
   useEffect(() => {
     document.title = "Jobs || Halal Jibika";
   }, []);
-
-  const deleteData = async (jobId) => {
+  //delet data.............................
+  const handleDeleteJob = async (jobId) => {
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:9000/jobs/${jobId}`
       );
-      console.log("Response:", response.data);
-      // Handle the response as needed
+      setJobs(jobs.filter((data) => data.id !== jobId));
     } catch (error) {
       console.error("Error:", error);
       // Handle errors
     }
   };
+  //delet job.............................
+  //edit job................................
+  const handleEditJob = (jobId) => {
+    const jobToEdit = jobs.find((job) => job.id === jobId);
+    setEditJob(jobToEdit);   
+    naviget('/editjob')
+  };
+
+  //edit job................................
+  //Aply jobs.............................
+  const handleAplyJob = () => {
+    toast.success(`You Applied successfully`, {
+      toastId: "success1",
+    });
+  };
+  //Aply jobs.............................
 
   return (
     <>
@@ -53,12 +75,25 @@ export default function Jobs() {
                     </p>
                   </Link>
                   <div className="card-button">
-                    <button>Apply</button>
+                    <button onClick={handleAplyJob}>Apply</button>
                     <div className="react-icon">
-                      <FaHeart className="love" />
-                      <FaEdit className="edit" />
+                    {!isfavorit(job.id) ? (
+                          <FaRegHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        ) : (
+                          <FaHeart
+                            className="love"
+                            onClick={() => addTofavorit(job)}
+                          />
+                        )}
+                      <FaEdit
+                        onClick={() => handleEditJob(job.id)}
+                        className="edit"
+                      />
                       <MdDelete
-                        onClick={() => deleteData(job.id)}
+                        onClick={() => handleDeleteJob(job.id)}
                         className="delet"
                       />
                     </div>
