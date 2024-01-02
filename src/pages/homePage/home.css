@@ -133,13 +133,11 @@
   padding-bottom: 20px;
 }
 .cards-heading h1 {
-  background: -webkit-linear-gradient(#06c606, #017f21);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+color: #00321F;
   font-size: 40px;
   margin-bottom: 20px;
-  border-top: 1px solid #008000;
-  border-bottom: 1px solid #015d01; 
+  border-top: 1px solid #00321F;
+  border-bottom: 1px solid #00321F; 
   border-radius: 15px; 
   padding: 5px 10px;
   width: 300px;

@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function PostJob() {
   const [postJobs, SetPostJobs] = useState({
@@ -12,12 +15,21 @@ export default function PostJob() {
     console.log(postJobs);
   });
 
+  const postData = async () => {
+    try {
+      const response = await axios.post("http://localhost:9000/jobs", postJobs);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <div className="signup-main-container">
         <div className="signup-container">
           <h2 className="title">Post New Job</h2>
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={postData}>
             <label htmlFor="title">Job Title:</label>
             <input
               type="text"

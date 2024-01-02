@@ -1,17 +1,28 @@
-/* eslint-disable react/jsx-key */
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaEdit, FaHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import "./jobs.css";
+import axios from "axios";
 
 export default function Jobs() {
-  useEffect(() => {
-    document.title = "Jobs";
-    console.log(jobs);
-  });
-  
   const jobs = useLoaderData();
+  useEffect(() => {
+    document.title = "Jobs || Halal Jibika";
+  }, []);
+
+  const deleteData = async (jobId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:9000/jobs/${jobId}`
+      );
+      console.log("Response:", response.data);
+      // Handle the response as needed
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle errors
+    }
+  };
 
   return (
     <>
@@ -46,7 +57,10 @@ export default function Jobs() {
                     <div className="react-icon">
                       <FaHeart className="love" />
                       <FaEdit className="edit" />
-                      <MdDelete className="delet" />
+                      <MdDelete
+                        onClick={() => deleteData(job.id)}
+                        className="delet"
+                      />
                     </div>
                   </div>
                 </div>
