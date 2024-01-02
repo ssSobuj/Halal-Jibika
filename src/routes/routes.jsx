@@ -21,11 +21,12 @@ export const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    id:"root",
+    loader:() => fetch("http://localhost:9000/jobs"),
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "about",
@@ -62,14 +63,10 @@ export const routes = createBrowserRouter([
             <Jobs />
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "job/:id",
         element: <Job />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:9000/jobs/${params.id}`),
-
         errorElement: <Error />,
       },
       {

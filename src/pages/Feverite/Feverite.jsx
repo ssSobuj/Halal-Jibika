@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
-import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Feverite() {
+export default function Feverite() {  
   const navigate = useNavigate();
   useEffect(() => {
     document.title = "Feverite || Halal Jibika";
@@ -12,7 +11,7 @@ export default function Feverite() {
   const { favoritJobs, isfavorit, addTofavorit } = useContext(glovalContext);
 
   if (favoritJobs.length < 1) {
-    navigate('/');
+    navigate("/");
   }
 
   return (
@@ -59,8 +58,6 @@ export default function Feverite() {
                           />
                         </Link>
                       )}
-                      <FaEdit className="edit" />
-                      <MdDelete className="delet" />
                     </div>
                   </div>
                 </div>

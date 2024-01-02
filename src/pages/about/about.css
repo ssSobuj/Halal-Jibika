@@ -1,4 +1,4 @@
-.about-container {
+/* .about-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 120px 20px 50px 50px;
@@ -18,11 +18,11 @@
   align-items: center;
   justify-content: center;
   
-}
+} */
 /* .first-section img{
   width: 400px;
 } */
-.socond-secton{
+/* .socond-secton{
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -43,12 +43,12 @@
   font-size: 1.2em;
   text-align: justify;
 }
+ */
 
 
-
-.about-container button {
-  background-color: #04ab11; /* Button background color */
-  color: #fff; /* Button text color */
+/* .about-container button {
+  background-color: #04ab11; 
+  color: #fff; 
   padding: 10px 20px;
   font-size: 1em;
   border: none;
@@ -58,5 +58,66 @@
 }
 
 .about-container button:hover {
-  background-color: #023a07; /* Darker color on hover */
+  background-color: #023a07; */
+/* } */
+.about-page {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 7rem 3rem;
+  font-family: 'Arial', sans-serif;
 }
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  background: -webkit-linear-gradient(#11aa1d, #00321F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  img {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+}
+
+.mission,
+.offerings,
+.team,
+.contact {
+  margin-bottom: 30px;
+
+  h2 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Add more styles based on your design preferences */

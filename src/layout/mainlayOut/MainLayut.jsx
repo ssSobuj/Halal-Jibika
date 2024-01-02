@@ -4,12 +4,15 @@ import Header from "../Header/Header";
 import Footer from "./../Footer/Footer";
 import Loading from "../../componets/loaading/Loading";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { createContext, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.config";
 
 export const glovalContext = createContext();
 export default function MainLayut() {
   const navigetion = useNavigation();
+  const user = useAuthState(auth);
 
   const [favoritJobs, setFavoritJobs] = useState([]);
   const [applyJobs, setApplyJobs] = useState([]);
@@ -22,6 +25,9 @@ export default function MainLayut() {
       setFavoritJobs((prev) => prev.filter((item) => item.id !== job.id));
     } else {
       setFavoritJobs([...favoritJobs, job]);
+      toast.success(`Job Add successfull go to favorit page`, {
+        toastId: "success1",
+      });
     }
   };
 
@@ -32,6 +38,9 @@ export default function MainLayut() {
       setApplyJobs((prev) => prev.filter((item) => item.id !== job.id));
     } else {
       setApplyJobs([...applyJobs, job]);
+      toast.success(`You Applied successfully. please go to the applied page`, {
+        toastId: "success1",
+      });
     }
   };
 
@@ -51,6 +60,8 @@ export default function MainLayut() {
           addApply,
           applyJobs,
           isApply,
+          setApplyJobs,
+          user,
         }}
       >
         <Header />

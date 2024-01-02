@@ -18,9 +18,6 @@ export default function Sinup() {
     document.title = "Signup || Halal Jibika";
   });
   const naviget = useNavigate();
-  const goBackToHome = () => {
-    naviget("/");
-  };
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, {
       sendEmailVerification: true,

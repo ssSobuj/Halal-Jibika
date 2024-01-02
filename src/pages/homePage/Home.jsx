@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import "./home.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
@@ -8,8 +8,9 @@ import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 export default function Home() {
   useEffect(() => {
     document.title = "Home || Halal Jibika";
-  });
-  const jobdetails = useLoaderData();
+  }, []);
+  const jobdetails = useRouteLoaderData("root");
+  // const jobdetails = useLoaderData();
 
   const { addTofavorit, isfavorit, addApply, isApply } =
     useContext(glovalContext);
@@ -31,12 +32,14 @@ export default function Home() {
               world of halal job opportunities. Our interface is thoughtfully
               designed to make your job search easy, efficient, and enjoyable.
             </p>
+            <div className="hero-btns">
             <Link to="/singup" className="explor-button">
               Explore All Jobs
             </Link>
             <Link to="/postjob" className="explor-button">
               Post A Job
             </Link>
+            </div>
           </div>
         </div>
 
@@ -80,12 +83,6 @@ export default function Home() {
                           {!isApply(job.id) ? "Apply" : "Applied"}
                         </button>
 
-                        {/* {!isApply(job.id) ? (
-                          <button onClick={() => addApply(job)}>Apply</button>
-                        ) : (
-                          <button onClick={() => addApply(job)}>Applied</button>
-                        )} */}
-
                         {!isfavorit(job.id) ? (
                           <FaRegHeart
                             className="love"
@@ -102,6 +99,94 @@ export default function Home() {
                   </>
                 </div>
               ))}
+          </div>
+        </div>
+
+        <div className="disign-section">
+          <div className="disign-container">
+            <h2>You need it, we have got it</h2>
+            <ul className="categories-list">
+              <li>
+                <a href="/categories/graphics-design?source=hplo_cat_sec&amp;pos=1">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design.91dfe44.svg"
+                    alt="Graphics &amp; Design"
+                    loading="lazy"
+                  />
+                  Graphics &amp; Design
+                </a>
+              </li>
+              <li>
+                <a href="/categories/online-marketing?source=hplo_cat_sec&amp;pos=2">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/online-marketing.a3e9794.svg"
+                    alt="Digital Marketing"
+                    loading="lazy"
+                  />
+                  Digital Marketing
+                </a>
+              </li>
+              <li>
+                <a href="/categories/writing-translation?source=hplo_cat_sec&amp;pos=3">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation.a787f2f.svg"
+                    alt="Writing &amp; Translation"
+                    loading="lazy"
+                  />
+                  Writing &amp; Translation
+                </a>
+              </li>
+              <li>
+                <a href="/categories/video-animation?source=hplo_cat_sec&amp;pos=4">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation.1356999.svg"
+                    alt="Video &amp; Animation"
+                    loading="lazy"
+                  />
+                  Video &amp; Animation
+                </a>
+              </li>              
+              <li>
+                <a href="/categories/programming-tech?source=hplo_cat_sec&amp;pos=6">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/programming.6ee5a90.svg"
+                    alt="Programming &amp; Tech"
+                    loading="lazy"
+                  />
+                  Programming &amp; Tech
+                </a>
+              </li>              
+              <li>
+                <a href="/categories/lifestyle?source=hplo_cat_sec&amp;pos=8">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/lifestyle.112b348.svg"
+                    alt="Lifestyle"
+                    loading="lazy"
+                  />
+                  Lifestyle
+                </a>
+              </li>
+              <li>
+                <a className="data" href="/categories/data?source=hplo_cat_sec&amp;pos=9">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/data.855fe95.svg"
+                    alt="Data"
+                    loading="lazy"
+                  />
+                  Data
+                </a>
+              </li>
+              <li>
+                <a href="/categories/photography?source=hplo_cat_sec&amp;pos=10">
+                  <img
+                    src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/photography.0cf5a3f.svg"
+                    alt="Photography"
+                    loading="lazy"
+                  />
+                  Photography
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

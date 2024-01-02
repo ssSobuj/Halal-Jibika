@@ -24,9 +24,9 @@ export default function Contact() {
         </p>
         <div className="contact-cards">
           <div className="contact-card">
-            <h3>Contact Information</h3>
+            <h3>Company Information</h3>
             <p>
-              <strong>Email:</strong>sbjPrograming@gmail.com <br />
+              <strong>Email:</strong> sbjrograming@gmail.com <br />
               <strong>Phone:</strong> +08801731620933 <br />
               <strong>Address:</strong> Beraid Dhaka
             </p>
@@ -34,9 +34,9 @@ export default function Contact() {
 
           {/* Company Contact Information */}
           <div className="contact-card">
-            <h3>Company Contact</h3>
+            <h3>CEO Contact</h3>
             <p>
-              <strong>CEO:</strong> Md Sobuj Hridoy <br />
+              <strong>Name:</strong> Md Sobuj Hridoy <br />
               <strong>Email:</strong> mdsobujredoy@gmail.com
               <br />
               <strong>WhatsApp:</strong> +8801756425845

@@ -39,8 +39,12 @@ export default function SocialLogin() {
   return (
     <>
       <div className="GoogleAndGithub">
-        <button className="git" onClick={() => signInWithGoogle()}>Sign up with <FaGoogle className="gogloe"/></button>
-        <button className="google" onClick={() => signInWithGithub()}>Sign up with <FaGithub className="github"/> </button>
+        <button className="git" onClick={() => signInWithGoogle()}>
+          Sign up with <FaGoogle className="gogloe" />
+        </button>
+        <button className="google" onClick={() => signInWithGithub()}>
+          Sign up with <FaGithub className="github" />{" "}
+        </button>
       </div>
     </>
   );

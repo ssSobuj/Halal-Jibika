@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRouteLoaderData } from "react-router-dom";
 import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import "./jobs.css";
@@ -10,9 +10,10 @@ import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import Applied from "../Apply/Applied";
 
 export default function Jobs() {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("root");
   const [jobs, setJobs] = useState(data);
-  const { setEditJob, isfavorit, addTofavorit } = useContext(glovalContext);
+  const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
+    useContext(glovalContext);
   const naviget = useNavigate();
 
   useEffect(() => {
@@ -37,17 +38,13 @@ export default function Jobs() {
   };
 
   //edit job................................
-  //Aply jobs.............................
-  const handleAplyJob = () => {
-    toast.success(`You Applied successfully`, {
-      toastId: "success1",
-    });
-  };
-  //Aply jobs.............................
 
   return (
     <>
       <div className="cards-container">
+        <div className="cards-container-heading">
+          <h1>Choose Your Dream Jobs</h1>
+        </div>
         <div className="cards">
           {jobs &&
             jobs.map((job) => (
@@ -74,7 +71,12 @@ export default function Jobs() {
                     </p>
                   </Link>
                   <div className="card-button">
-                    <button onClick={handleAplyJob}>Apply</button>
+                    <button
+                      disabled={isApply(job.id)}
+                      onClick={() => addApply(job)}
+                    >
+                      {!isApply(job.id) ? "Apply" : "Applied"}
+                    </button>{" "}
                     <div className="react-icon">
                       {!isfavorit(job.id) ? (
                         <FaRegHeart

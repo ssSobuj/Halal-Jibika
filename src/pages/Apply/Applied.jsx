@@ -1,15 +1,30 @@
 import { useContext } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
-import { FaEdit, FaRegHeart } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
 
 function Applied() {
-  const { applyJobs } = useContext(glovalContext);
-  console.log(applyJobs);
+  const { applyJobs, setApplyJobs, isApply, addApply } =
+    useContext(glovalContext);
+
+  const removeAllApply = () => {
+    setApplyJobs([]);
+  };
+
   return (
     <>
       <div className="cards-container">
-        <h2>These are the jobs you have applied for</h2>
+        {applyJobs.length < 1 ? (
+          <h1
+            style={{ color: "#00321F", marginBottom: "40px", fontSize: "40px" }}
+          >
+            Your Have Not Applied Any jobs
+          </h1>
+        ) : (
+          <h1
+            style={{ color: "#00321F", marginBottom: "40px", fontSize: "40px" }}
+          >
+            Your all Applied jobs
+          </h1>
+        )}
 
         <div className="cards">
           {applyJobs &&
@@ -33,16 +48,21 @@ function Applied() {
                   </p>
                   <div className="card-button">
                     <div className="react-icon">
-                      <button>Apply</button>
-                      <FaRegHeart />
-                      <FaEdit className="edit" />
-                      <MdDelete className="delet" />
+                      <button
+                        disabled={isApply(job.id)}
+                        onClick={() => addApply(job)}
+                      >
+                        {!isApply(job.id) ? "Apply" : "Applied"}
+                      </button>{" "}
                     </div>
                   </div>
                 </div>
               </div>
             ))}
         </div>
+        {applyJobs.length > 0 && (
+          <button onClick={removeAllApply}>Remoov All</button>
+        )}
       </div>
     </>
   );

@@ -1,9 +1,12 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useRouteLoaderData } from "react-router-dom";
 import "./job.css";
 export default function Job() {
-  const jobdata = useLoaderData();
+  const id = +useParams().id;
+  console.log(useParams());
+  const jobdata = useRouteLoaderData("root").find((job) => job.id === id);
   const navigate = useNavigate();
 
+  console.log(jobdata);
   const goBack = () => {
     navigate(-1);
   };
@@ -41,7 +44,7 @@ export default function Job() {
                   ensure proper intonation, pace, and emphasis.
                 </p>
               </div>
-              <div className="inner-card inner-card-2" >
+              <div className="inner-card inner-card-2">
                 <h3>Job Requirements</h3>
                 <p>
                   Ability to work independently in a fast-paced environment.

@@ -16,7 +16,7 @@ export default function About() {
 
   return (
     <>
-      <div className="about-container">
+      {/* <div className="about-container">
         <h2 className="title">About Halal Jibika Jobs</h2>
         <div className="first-section">
           <div>
@@ -54,7 +54,57 @@ export default function About() {
         </div>
 
         <button onClick={goBackToHome}>Back to home</button>
-      </div>
+      </div> */}
+     
+
+
+    <div className="about-page">
+      <header>
+        <h1>About Us</h1>
+      </header>
+
+      <section className="intro">
+        <img src="https://picsum.photos/200" alt="Website Logo" />
+        <p>
+          Welcome to <strong>[Your Website Name]</strong>! We are dedicated to providing [brief description of your website's purpose and mission].
+        </p>
+      </section>
+
+      <section className="mission">
+        <h2>Our Mission</h2>
+        <p>
+          At <em>[Your Website Name]</em>, our mission is to <strong>[describe your mission and goals]</strong>. We aim to <em>[mention specific objectives or values]</em>.
+        </p>
+      </section>
+
+      <section className="offerings">
+        <h2>What We Offer</h2>
+        <img src="https://picsum.photos/200" alt="Offerings Image" />
+        <p>
+          [Describe the key features, services, or products offered on your website].
+        </p>
+      </section>
+
+      <section className="team">
+        <h2>Our Team</h2>
+        <img src="https://picsum.photos/200" alt="Team Image" />
+        <p>
+          Meet the passionate individuals behind <strong>[Your Website Name]</strong>. Our team is committed to <em>[briefly describe the team's commitment or expertise]</em>.
+        </p>
+      </section>
+
+      <section className="contact">
+        <h2>Contact Us</h2>
+        <img src="https://picsum.photos/200" alt="Contact Image" />
+        <p>
+          Have questions or feedback? Feel free to reach out to us at <a href="mailto:info@example.com">info@example.com</a> or through our <a href="/contact">contact form</a>.
+        </p>
+      </section>
+    </div>
+ 
+
+
+
     </>
   );
 }

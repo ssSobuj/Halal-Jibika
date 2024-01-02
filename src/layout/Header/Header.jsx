@@ -9,13 +9,12 @@ import { glovalContext } from "../mainlayOut/MainLayut";
 
 export default function Header() {
   const [user] = useAuthState(auth);
-  console.log(user);
 
   const logOut = () => {
     signOut(auth);
   };
 
-  const { favoritJobs } = useContext(glovalContext);
+  const { favoritJobs, applyJobs } = useContext(glovalContext);
 
   const [showNavbar, setShowNavbar] = useState(false);
 
@@ -50,9 +49,11 @@ export default function Header() {
                   <NavLink to="/feverite">Favorite</NavLink>
                 </li>
               )}
-              <li onClick={handleShowNavbar}>
-                <NavLink to="/applied">Applied</NavLink>
-              </li>
+              {user && applyJobs.length > 0 && (
+                <li onClick={handleShowNavbar}>
+                  <NavLink to="/applied">Applied</NavLink>
+                </li>
+              )}
               <li onClick={handleShowNavbar}>
                 <NavLink to="/contact">Contact</NavLink>
               </li>
