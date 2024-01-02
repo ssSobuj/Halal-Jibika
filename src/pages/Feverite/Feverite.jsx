@@ -1,14 +1,19 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Feverite() {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "Feverite || Halal Jibika";
-  });
-  const { favoritJobs,isfavorit,addTofavorit } = useContext(glovalContext);
+  }, []);
+  const { favoritJobs, isfavorit, addTofavorit } = useContext(glovalContext);
+
+  if (favoritJobs.length < 1) {
+    navigate('/');
+  }
 
   return (
     <>
@@ -41,17 +46,19 @@ export default function Feverite() {
                   <div className="card-button">
                     <button>Apply</button>
                     <div className="react-icon">
-                    {!isfavorit(job.id) ? (
-                          <FaRegHeart
-                            className="love"
-                            onClick={() => addTofavorit(job)}
-                          />
-                        ) : (
+                      {!isfavorit(job.id) ? (
+                        <FaRegHeart
+                          className="love"
+                          onClick={() => addTofavorit(job)}
+                        />
+                      ) : (
+                        <Link>
                           <FaHeart
                             className="love"
                             onClick={() => addTofavorit(job)}
                           />
-                        )}
+                        </Link>
+                      )}
                       <FaEdit className="edit" />
                       <MdDelete className="delet" />
                     </div>

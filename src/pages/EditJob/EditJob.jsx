@@ -17,7 +17,7 @@ export default function EditJob() {
 
   const handleEditJobSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
       await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
       navigate('/jobs')

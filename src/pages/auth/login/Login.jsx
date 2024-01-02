@@ -13,7 +13,7 @@ export default function Login() {
   useEffect(() => {
     document.title = "SingIn || Halal Jibika";
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -54,7 +54,9 @@ export default function Login() {
           <h2 className="title">Sign In</h2>
           <p>
             You Do not have an acount{" "}
-            <Link to={"/singup"}><b>Create an aconut</b></Link>{" "}
+            <Link to={"/singup"}>
+              <b>Create an aconut</b>
+            </Link>{" "}
           </p>
           <form className="login-form" onSubmit={hadnleSingInData}>
             <label htmlFor="username">Username:</label>

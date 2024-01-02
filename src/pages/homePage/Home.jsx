@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./home.css";
@@ -10,7 +11,8 @@ export default function Home() {
   });
   const jobdetails = useLoaderData();
 
-  const { addTofavorit, isfavorit } = useContext(glovalContext);
+  const { addTofavorit, isfavorit, addApply, isApply } =
+    useContext(glovalContext);
 
   return (
     <>
@@ -69,7 +71,20 @@ export default function Home() {
                         </p>
                       </Link>
                       <div className="card-deteils-button">
-                        <button className="deteils-button">Apply</button>
+                        {/* <button onClick={() => addApply(job)}>Apply</button> */}
+
+                        <button
+                          disabled={isApply(job.id)}
+                          onClick={() => addApply(job)}
+                        >
+                          {!isApply(job.id) ? "Apply" : "Applied"}
+                        </button>
+
+                        {/* {!isApply(job.id) ? (
+                          <button onClick={() => addApply(job)}>Apply</button>
+                        ) : (
+                          <button onClick={() => addApply(job)}>Applied</button>
+                        )} */}
 
                         {!isfavorit(job.id) ? (
                           <FaRegHeart

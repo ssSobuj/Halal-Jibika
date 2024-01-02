@@ -7,12 +7,13 @@ import "./jobs.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
+import Applied from "../Apply/Applied";
 
 export default function Jobs() {
   const data = useLoaderData();
   const [jobs, setJobs] = useState(data);
-  const { setEditJob,isfavorit,addTofavorit } = useContext(glovalContext);
-  const naviget = useNavigate() 
+  const { setEditJob, isfavorit, addTofavorit } = useContext(glovalContext);
+  const naviget = useNavigate();
 
   useEffect(() => {
     document.title = "Jobs || Halal Jibika";
@@ -20,9 +21,7 @@ export default function Jobs() {
   //delet data.............................
   const handleDeleteJob = async (jobId) => {
     try {
-      await axios.delete(
-        `http://localhost:9000/jobs/${jobId}`
-      );
+      await axios.delete(`http://localhost:9000/jobs/${jobId}`);
       setJobs(jobs.filter((data) => data.id !== jobId));
     } catch (error) {
       console.error("Error:", error);
@@ -33,8 +32,8 @@ export default function Jobs() {
   //edit job................................
   const handleEditJob = (jobId) => {
     const jobToEdit = jobs.find((job) => job.id === jobId);
-    setEditJob(jobToEdit);   
-    naviget('/editjob')
+    setEditJob(jobToEdit);
+    naviget("/editjob");
   };
 
   //edit job................................
@@ -77,17 +76,17 @@ export default function Jobs() {
                   <div className="card-button">
                     <button onClick={handleAplyJob}>Apply</button>
                     <div className="react-icon">
-                    {!isfavorit(job.id) ? (
-                          <FaRegHeart
-                            className="love"
-                            onClick={() => addTofavorit(job)}
-                          />
-                        ) : (
-                          <FaHeart
-                            className="love"
-                            onClick={() => addTofavorit(job)}
-                          />
-                        )}
+                      {!isfavorit(job.id) ? (
+                        <FaRegHeart
+                          className="love"
+                          onClick={() => addTofavorit(job)}
+                        />
+                      ) : (
+                        <FaHeart
+                          className="love"
+                          onClick={() => addTofavorit(job)}
+                        />
+                      )}
                       <FaEdit
                         onClick={() => handleEditJob(job.id)}
                         className="edit"
@@ -102,6 +101,7 @@ export default function Jobs() {
               </div>
             ))}
         </div>
+        <Applied />
       </div>
     </>
   );

@@ -3,14 +3,19 @@ import "./Header.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.config";
 import { signOut } from "firebase/auth";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineMenuFold } from "react-icons/ai";
+import { glovalContext } from "../mainlayOut/MainLayut";
 
 export default function Header() {
   const [user] = useAuthState(auth);
+  console.log(user);
+
   const logOut = () => {
     signOut(auth);
   };
+
+  const { favoritJobs } = useContext(glovalContext);
 
   const [showNavbar, setShowNavbar] = useState(false);
 
@@ -40,8 +45,13 @@ export default function Header() {
               <li onClick={handleShowNavbar}>
                 <NavLink to="/jobs">Jobs</NavLink>
               </li>
+              {user && favoritJobs.length > 0 && (
+                <li onClick={handleShowNavbar}>
+                  <NavLink to="/feverite">Favorite</NavLink>
+                </li>
+              )}
               <li onClick={handleShowNavbar}>
-                <NavLink to="/feverite">Favorite</NavLink>
+                <NavLink to="/applied">Applied</NavLink>
               </li>
               <li onClick={handleShowNavbar}>
                 <NavLink to="/contact">Contact</NavLink>
