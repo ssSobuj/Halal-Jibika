@@ -7,9 +7,11 @@ import "./jobs.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
-import Applied from "../Apply/Applied";
+import auth from "../../firebase/firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Jobs() {
+  const [user] = useAuthState(auth);
   const data = useRouteLoaderData("root");
   const [jobs, setJobs] = useState(data);
   const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
@@ -22,19 +24,29 @@ export default function Jobs() {
   //delet data.............................
   const handleDeleteJob = async (jobId) => {
     try {
-      await axios.delete(`http://localhost:9000/jobs/${jobId}`);
-      setJobs(jobs.filter((data) => data.id !== jobId));
+      if (!user) {
+        naviget("/singup");
+        toast.warn(`Please Sign In First`);
+      } else {
+        await axios.delete(`http://localhost:9000/jobs/${jobId}`);
+        setJobs(jobs.filter((data) => data.id !== jobId));
+      }
     } catch (error) {
       console.error("Error:", error);
-      // Handle errors
     }
   };
   //delet job.............................
   //edit job................................
   const handleEditJob = (jobId) => {
-    const jobToEdit = jobs.find((job) => job.id === jobId);
-    setEditJob(jobToEdit);
-    naviget("/editjob");
+    if (!user) {
+      naviget("/singup");
+      toast.warn(`Please Sign In First`);
+    } else {
+      const jobToEdit = jobs.find((job) => job.id === jobId);
+      setEditJob(jobToEdit);
+      naviget("/editjob");
+      toast.success(`Edit Your Job`);
+    }
   };
 
   //edit job................................
@@ -103,7 +115,6 @@ export default function Jobs() {
               </div>
             ))}
         </div>
-        <Applied />
       </div>
     </>
   );

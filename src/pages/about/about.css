@@ -1,76 +1,14 @@
-/* .about-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 120px 20px 50px 50px;
-  border-radius: 10px;
-}
-
-.about-container .title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  background: -webkit-linear-gradient(#06c606, #017f21);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.first-section{
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
-  
-} */
-/* .first-section img{
-  width: 400px;
-} */
-/* .socond-secton{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.socond-secton p{
-  text-align: justify;
-  font-size: 1.1em;
-}
-
-.description-div{
-  display: flex;
-  align-items: center;
-}
-
-.description-div .description {
-  font-size: 1.2em;
-  text-align: justify;
-}
- */
-
-
-/* .about-container button {
-  background-color: #04ab11; 
-  color: #fff; 
-  padding: 10px 20px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.about-container button:hover {
-  background-color: #023a07; */
-/* } */
 .about-page {
   max-width: 75%;
   margin: 0 auto;
   padding: 7rem 3rem;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
-  background: -webkit-linear-gradient(#11aa1d, #00321F);
+  background: -webkit-linear-gradient(#11aa1d, #00321f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -86,11 +24,15 @@ header {
     margin-right: 20px;
   }
 }
-
+.offerings img {
+  width: 20%;
+}
+.team img {
+  width: 20%;
+}
 .mission,
 .offerings,
-.team,
-.contact {
+.team {
   margin-bottom: 30px;
 
   h2 {
@@ -102,6 +44,7 @@ header {
 
   p {
     line-height: 1.6;
+    text-align: j;
   }
 
   img {
@@ -119,5 +62,3 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* Add more styles based on your design preferences */

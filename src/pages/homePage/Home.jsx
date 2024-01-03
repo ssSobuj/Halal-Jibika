@@ -1,19 +1,42 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect } from "react";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useNavigate, useRouteLoaderData } from "react-router-dom";
 import "./home.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export default function Home() {
+  const [user] = useAuthState(auth);
+  const navigete = useNavigate();
   useEffect(() => {
     document.title = "Home || Halal Jibika";
   }, []);
   const jobdetails = useRouteLoaderData("root");
-  // const jobdetails = useLoaderData();
 
   const { addTofavorit, isfavorit, addApply, isApply } =
     useContext(glovalContext);
+
+  const handleJobRouting = () => {
+    if (!user) {
+      navigete("/singup");
+      toast.warn(`Please Sign In First`);
+    } else {
+      navigete("/jobs");
+      toast.success(`Choose Your Dream Job`);
+    }
+  };
+  const handlePostRouting = () => {
+    if (!user) {
+      navigete("/singup");
+      toast.warn(`Please Sign In First`);
+    } else {
+      navigete("/postjob");
+      toast.success(`Post Your Job`);
+    }
+  };
 
   return (
     <>
@@ -33,12 +56,18 @@ export default function Home() {
               designed to make your job search easy, efficient, and enjoyable.
             </p>
             <div className="hero-btns">
-            <Link to="/singup" className="explor-button">
-              Explore All Jobs
-            </Link>
-            <Link to="/postjob" className="explor-button">
-              Post A Job
-            </Link>
+              <button
+                onClick={() => handleJobRouting()}
+                className="explor-button"
+              >
+                Explore All Jobs
+              </button>
+              <button
+                onClick={() => handlePostRouting()}
+                className="explor-button"
+              >
+                Post A Job
+              </button>
             </div>
           </div>
         </div>
@@ -53,26 +82,22 @@ export default function Home() {
                 // eslint-disable-next-line react/jsx-key
                 <div className="card" key={job.id}>
                   <>
-                    <Link to={`/job/${job.id}`}>
-                      <div className="card-img">
-                        <img src={job.logo} alt="" />
-                      </div>
-                    </Link>
+                    <div className="card-img">
+                      <img src={job.logo} alt="" />
+                    </div>
                     <div className="card-content">
-                      <Link to={`/job/${job.id}`}>
-                        <h4>
-                          <b>Company Name:</b> {job.companyName}
-                        </h4>
-                        <p>
-                          <b>Job Title:</b> {job.title}
-                        </p>
-                        <p>
-                          <b>Job Positon:</b> {job.position}
-                        </p>
-                        <p>
-                          <b>Job Dsc:</b> {job.description}
-                        </p>
-                      </Link>
+                      <h4>
+                        <b>Company Name:</b> {job.companyName}
+                      </h4>
+                      <p>
+                        <b>Job Title:</b> {job.title}
+                      </p>
+                      <p>
+                        <b>Job Positon:</b> {job.position}
+                      </p>
+                      <p>
+                        <b>Job Dsc:</b> {job.description}
+                      </p>
                       <div className="card-deteils-button">
                         {/* <button onClick={() => addApply(job)}>Apply</button> */}
 
@@ -104,7 +129,9 @@ export default function Home() {
 
         <div className="disign-section">
           <div className="disign-container">
-            <h2>You need it, we have got it</h2>
+            <h2>
+              You need it, <span>we have got it</span>
+            </h2>
             <ul className="categories-list">
               <li>
                 <a href="/categories/graphics-design?source=hplo_cat_sec&amp;pos=1">
@@ -145,7 +172,7 @@ export default function Home() {
                   />
                   Video &amp; Animation
                 </a>
-              </li>              
+              </li>
               <li>
                 <a href="/categories/programming-tech?source=hplo_cat_sec&amp;pos=6">
                   <img
@@ -155,7 +182,7 @@ export default function Home() {
                   />
                   Programming &amp; Tech
                 </a>
-              </li>              
+              </li>
               <li>
                 <a href="/categories/lifestyle?source=hplo_cat_sec&amp;pos=8">
                   <img
@@ -167,7 +194,10 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a className="data" href="/categories/data?source=hplo_cat_sec&amp;pos=9">
+                <a
+                  className="data"
+                  href="/categories/data?source=hplo_cat_sec&amp;pos=9"
+                >
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/data.855fe95.svg"
                     alt="Data"

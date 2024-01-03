@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
+import "./apply.css";
+import { toast } from "react-toastify";
 
 function Applied() {
   const { applyJobs, setApplyJobs, isApply, addApply } =
@@ -7,6 +9,7 @@ function Applied() {
 
   const removeAllApply = () => {
     setApplyJobs([]);
+    toast.warn("all aplied jobs are delet");
   };
 
   return (
@@ -61,7 +64,9 @@ function Applied() {
             ))}
         </div>
         {applyJobs.length > 0 && (
-          <button onClick={removeAllApply}>Remoov All</button>
+          <button onClick={removeAllApply} className="removAll">
+            Remoov All
+          </button>
         )}
       </div>
     </>

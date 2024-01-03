@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "./../Footer/Footer";
 import Loading from "../../componets/loaading/Loading";
@@ -12,7 +12,8 @@ import auth from "../../firebase/firebase.config";
 export const glovalContext = createContext();
 export default function MainLayut() {
   const navigetion = useNavigation();
-  const user = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const [favoritJobs, setFavoritJobs] = useState([]);
   const [applyJobs, setApplyJobs] = useState([]);
@@ -20,27 +21,40 @@ export default function MainLayut() {
 
   const isfavorit = (id) => favoritJobs.some((favJob) => favJob.id === id);
   const addTofavorit = (job) => {
-    const isAlredyFavorit = favoritJobs.some((item) => item.id === job.id);
-    if (isAlredyFavorit) {
-      setFavoritJobs((prev) => prev.filter((item) => item.id !== job.id));
+    if (!user) {
+      navigate("/login");
+      toast.warn(`Please Sign In First`);
     } else {
-      setFavoritJobs([...favoritJobs, job]);
-      toast.success(`Job Add successfull go to favorit page`, {
-        toastId: "success1",
-      });
+      const isAlredyFavorit = favoritJobs.some((item) => item.id === job.id);
+      if (isAlredyFavorit) {
+        setFavoritJobs((prev) => prev.filter((item) => item.id !== job.id));
+      } else {
+        setFavoritJobs([...favoritJobs, job]);
+        toast.success(`Job Add successfull go to favorit page`, {
+          toastId: "success1",
+        });
+      }
     }
   };
 
   const isApply = (id) => applyJobs.some((appJob) => appJob.id === id);
   const addApply = (job) => {
-    const isAlredyApply = applyJobs.some((item) => item.id === job.id);
-    if (isAlredyApply) {
-      setApplyJobs((prev) => prev.filter((item) => item.id !== job.id));
+    if (!user) {
+      navigate("/login");
+      toast.warn(`Please Sign In First`);
     } else {
-      setApplyJobs([...applyJobs, job]);
-      toast.success(`You Applied successfully. please go to the applied page`, {
-        toastId: "success1",
-      });
+      const isAlredyApply = applyJobs.some((item) => item.id === job.id);
+      if (isAlredyApply) {
+        setApplyJobs((prev) => prev.filter((item) => item.id !== job.id));
+      } else {
+        setApplyJobs([...applyJobs, job]);
+        toast.success(
+          `You Applied successfully. please go to the applied page`,
+          {
+            toastId: "success1",
+          }
+        );
+      }
     }
   };
 
