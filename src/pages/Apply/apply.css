@@ -8,3 +8,20 @@
   margin-top: 20px;
 
 }
+.applied-container .cards-container h1 {
+  color: #00321F;
+  margin-bottom: 40px;
+  font-size: 40px
+}
+
+@media screen and (max-width: 450px) {
+  .applied-container {
+    padding-top: 50px;
+  }
+  .applied-container .cards-container h1 {
+    color: #00321f;
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}

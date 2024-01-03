@@ -8,6 +8,7 @@ export default function Job() {
   const jobdata = useRouteLoaderData("root").find((job) => job.id === id);
   const navigate = useNavigate();
   const { isApply, addApply } = useContext(glovalContext);
+  
 
   console.log(jobdata);
   const goBack = () => {

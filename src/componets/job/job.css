@@ -46,11 +46,11 @@
   height: 180px;
   border-radius: 50%;
 }
-.single-card-btn{
+.single-card-btn {
   display: flex;
   gap: 20px;
 }
-.single-card-btn button{
+.single-card-btn button {
   width: 50%;
 }
 
@@ -76,13 +76,13 @@
   gap: 10px;
   width: 50%;
 }
-.job-container .single-card .inner-cards .inner-card-1{
+.job-container .single-card .inner-cards .inner-card-1 {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 25px;
   padding-bottom: 15px;
 }
-.inner-card-2{
+.inner-card-2 {
   padding-top: 15px;
   padding-left: 25px;
   padding-right: 15px;
@@ -92,4 +92,43 @@
 
 .job-container .single-card button:hover {
   background-color: #00321f;
+}
+
+@media screen and (max-width: 450px) {
+  .job-container {
+    padding-top: 50px;
+  }
+
+  .job-container .single-card {
+    padding: 10px;
+    box-shadow: none;
+  }
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .single-card .job-content {
+    text-align: start;
+  }
+  .job-container .single-card .first-section img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .job-container .single-card .inner-cards {
+    display: none;
+  }
+}
+
+/* Media query for medium-sized screens (min-width: 451px) and (max-width: 850px) */
+@media screen and (min-width: 451px) and (max-width: 850px) {
+  .job-container {
+    padding-top: 60px;
+  }
+
+  .single-card {
+    max-width: 75%;
+  }
 }

@@ -1,5 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Outlet, useNavigate, useNavigation } from "react-router-dom";
+import {
+  Outlet,
+  ScrollRestoration,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "./../Footer/Footer";
 import Loading from "../../componets/loaading/Loading";
@@ -79,6 +84,7 @@ export default function MainLayut() {
         }}
       >
         <Header />
+        <ScrollRestoration />
         <div>{navigetion.state === "loading" ? <Loading /> : <Outlet />}</div>
         <ToastContainer />
         <Footer />

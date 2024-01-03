@@ -8,10 +8,9 @@ export default function Contact() {
     document.title = "Contact || Halal Jibika";
   });
   const handleInputFocus = () => {
-    // Scroll down by 200px when the input is focused
     window.scrollTo({
       top: window.scrollY + 200,
-      behavior: "smooth", // You can also use 'auto' for instant scrolling
+      behavior: "smooth",
     });
   };
 

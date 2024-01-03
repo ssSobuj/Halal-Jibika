@@ -1,10 +1,10 @@
+/* Common styling for all screen sizes */
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 120px 0 50px 0;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  padding: 120px 20px 50px 20px;
   border-radius: 10px;
-  color: #001f3f; /* Text color */
+  color: #001f3f;
 }
 
 .contact-container .title {
@@ -31,7 +31,7 @@
 }
 
 .contact-form input,
-textarea {
+.contact-form textarea {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -40,8 +40,8 @@ textarea {
 }
 
 .contact-form button {
-  background-color: #1f3929; /* Button background color */
-  color: #fff; /* Button text color */
+  background-color: #1f3929;
+  color: #fff;
   padding: 10px 20px;
   font-size: 1em;
   border: none;
@@ -53,9 +53,10 @@ textarea {
 .contact-form button:hover {
   background-color: #3e5d4a;
 }
+
 .contact-cards {
   display: flex;
-  width: 100%;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
   justify-content: space-between;
 }
 
@@ -64,16 +65,41 @@ textarea {
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
-  width: 40%;
+  width: 100%; /* Full width on small screens, override in larger screens */
 }
 
 .contact-card h3 {
   font-size: 1.5rem;
-  color: #00321F;
+  color: #00321f;
   margin-bottom: 10px;
 }
 
 .contact-card p {
   font-size: 1rem;
   color: #000;
+}
+
+/* Responsive styling for screens up to 450px */
+@media screen and (max-width: 450px) {
+  .contact-container {
+    padding: 120px 10px 30px 10px;
+  }
+
+  .contact-container .title {
+    font-size: 30px;
+  }
+
+  .contact-container .description {
+    font-size: 1em;
+  }
+
+  .contact-form button {
+    padding: 10px 15px;
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 850px) {
+  .contact-card {
+    width: 48%;
+  }
 }

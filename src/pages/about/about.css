@@ -62,3 +62,48 @@ a {
 a:hover {
   text-decoration: underline;
 }
+@media screen and (max-width: 600px) {
+  .about-page {
+    max-width: 100%;
+    padding: 7rem 2rem;
+  }
+  .about-page p {
+    text-align: justify;
+    font-size: 15px;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 50px;
+  }
+  .intro img {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .offerings img,
+  .team img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .about-page {
+    max-width: 100%;
+    padding: 9rem 3rem;
+    margin: 0 auto;
+  }
+  .about-page p {
+    text-align: justify;
+    font-size: 22px;
+  }
+  .about-page header{
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+}

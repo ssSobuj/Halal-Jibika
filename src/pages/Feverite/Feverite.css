@@ -1,0 +1,17 @@
+.fevorit-container .cards-container h1 {
+  color: #00321f;
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 450px) {
+  .fevorit-container {
+    padding-top: 50px;
+  }
+  .fevorit-container .cards-container h1 {
+    color: #00321f;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}

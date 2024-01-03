@@ -61,7 +61,7 @@ export default function Sinup() {
           <p>
             You allredy have an acount:{" "}
             <Link to={"/login"}>
-              <b>Log in</b>
+              <b>Sign in your acount</b>
             </Link>{" "}
           </p>
           <form className="signup-form" onSubmit={handleSignup}>
