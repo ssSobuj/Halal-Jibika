@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function EditJob() {
   const { editJob } = useContext(glovalContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [editedJob, setEditedJob] = useState({
     title: editJob?.title || "",
@@ -17,10 +17,11 @@ export default function EditJob() {
 
   const handleEditJobSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
-      navigate('/jobs')
+      navigate("/jobs");
+      window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }

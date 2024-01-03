@@ -134,87 +134,84 @@ export default function Home() {
             </h2>
             <ul className="categories-list">
               <li>
-                <a href="/categories/graphics-design?source=hplo_cat_sec&amp;pos=1">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design.91dfe44.svg"
                     alt="Graphics &amp; Design"
                     loading="lazy"
                   />
                   Graphics &amp; Design
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/online-marketing?source=hplo_cat_sec&amp;pos=2">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/online-marketing.a3e9794.svg"
                     alt="Digital Marketing"
                     loading="lazy"
                   />
                   Digital Marketing
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/writing-translation?source=hplo_cat_sec&amp;pos=3">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation.a787f2f.svg"
                     alt="Writing &amp; Translation"
                     loading="lazy"
                   />
                   Writing &amp; Translation
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/video-animation?source=hplo_cat_sec&amp;pos=4">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation.1356999.svg"
                     alt="Video &amp; Animation"
                     loading="lazy"
                   />
                   Video &amp; Animation
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/programming-tech?source=hplo_cat_sec&amp;pos=6">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/programming.6ee5a90.svg"
                     alt="Programming &amp; Tech"
                     loading="lazy"
                   />
                   Programming &amp; Tech
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/lifestyle?source=hplo_cat_sec&amp;pos=8">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/lifestyle.112b348.svg"
                     alt="Lifestyle"
                     loading="lazy"
                   />
                   Lifestyle
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  className="data"
-                  href="/categories/data?source=hplo_cat_sec&amp;pos=9"
-                >
+                <span className="data">
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/data.855fe95.svg"
                     alt="Data"
                     loading="lazy"
                   />
                   Data
-                </a>
+                </span>
               </li>
               <li>
-                <a href="/categories/photography?source=hplo_cat_sec&amp;pos=10">
+                <span>
                   <img
                     src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/photography.0cf5a3f.svg"
                     alt="Photography"
                     loading="lazy"
                   />
                   Photography
-                </a>
+                </span>
               </li>
             </ul>
           </div>

@@ -12,7 +12,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Jobs() {
   const [user] = useAuthState(auth);
-  const data = useRouteLoaderData("root");
+  const data = useRouteLoaderData("root");  
   const [jobs, setJobs] = useState(data);
   const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
     useContext(glovalContext);
