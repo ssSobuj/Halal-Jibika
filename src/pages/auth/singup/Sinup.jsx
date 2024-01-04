@@ -13,21 +13,30 @@ import { toast } from "react-toastify";
 import auth from "../../../firebase/firebase.config";
 import Loading from "./../../../componets/loaading/Loading";
 
-export default function Sinup() {
+export default function Signup() {
+  // Set document title on component mount
   useEffect(() => {
     document.title = "Signup || Halal Jibika";
-  });
-  const naviget = useNavigate();
+  }, []);
+
+  // React Router hook for navigation
+  const navigate = useNavigate();
+
+  // Firebase hooks for user creation and profile update
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, {
       sendEmailVerification: true,
     });
   const [updateProfile, updating] = useUpdateProfile(auth);
 
+  // Display loading spinner while signing up
   if (loading || updating) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
+
   let errorElement;
+
+  // Display error message if signup fails
   if (error) {
     errorElement = (
       <p style={{ backgroundColor: "red", width: "600px", color: "wheat" }}>
@@ -35,22 +44,33 @@ export default function Sinup() {
       </p>
     );
   }
+
+  // Redirect to home page upon successful signup
   if (user) {
-    naviget("/");
+    navigate("/");
   }
 
+  // Handle the signup form submission
   const handleSignup = async (e) => {
     e.preventDefault();
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
+
+    // Check if the password and confirm password match
     if (password !== confirmPassword) {
-      return toast.error("your password dose not macht");
+      return toast.error("Your password does not match");
     }
+
+    // Create a new user with email and password
     await createUserWithEmailAndPassword(email, password);
+
+    // Update the user profile with the provided username
     await updateProfile({ displayName: username });
-    return toast.success("Sign up succsesfully");
+
+    // Show success message
+    return toast.success("Sign up successfully");
   };
 
   return (

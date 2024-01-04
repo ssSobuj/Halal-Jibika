@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect } from "react";
-import { Link, useNavigate, useRouteLoaderData } from "react-router-dom";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import "./home.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
@@ -79,7 +79,6 @@ export default function Home() {
           <div className="cards">
             {jobdetails &&
               jobdetails.slice(0, 4).map((job) => (
-                // eslint-disable-next-line react/jsx-key
                 <div className="card" key={job.id}>
                   <>
                     <div className="card-img">
@@ -99,8 +98,6 @@ export default function Home() {
                         <b>Job Dsc:</b> {job.description}
                       </p>
                       <div className="card-deteils-button">
-                        {/* <button onClick={() => addApply(job)}>Apply</button> */}
-
                         <button
                           disabled={isApply(job.id) && user}
                           onClick={() => addApply(job)}
@@ -132,6 +129,9 @@ export default function Home() {
                 </div>
               ))}
           </div>
+          <button onClick={() => handleJobRouting()} className="explor-button">
+            Show More Jobs
+          </button>
         </div>
 
         <div className="disign-section">

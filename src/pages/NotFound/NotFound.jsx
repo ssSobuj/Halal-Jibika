@@ -20,7 +20,9 @@ export default function NotFound() {
       <div className="notfound-container">
         <div className="notfound-content">
           <h1>Page Not Found</h1>
-          <p>There is some problem <br /> please check it.</p>
+          <p>
+            There is some problem <br /> please check it.
+          </p>
           <div className="btn">
             <button onClick={goBackHandle}>Go Back</button>
             <button onClick={goBacktoHomeHandle}>Back Home</button>

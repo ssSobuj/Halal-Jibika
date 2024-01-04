@@ -13,6 +13,7 @@ import PrivacyPolicy from "../componets/PrivacyPolicy/PrivacyPolicy";
 import PostJob from "../pages/PostJob/PostJob";
 import EditJob from "../pages/EditJob/EditJob";
 import Applied from "../pages/Apply/Applied";
+import Job from "../componets/job/Job";
 
 export const routes = createBrowserRouter([
   {
@@ -57,6 +58,12 @@ export const routes = createBrowserRouter([
         path: "jobs",
         element: <Jobs />,
         loader: () => fetch("http://localhost:9000/jobs"),
+      },
+      {
+        path: "job/:id",
+        element: <Job />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:9000/jobs/${params.id}`),
       },
       {
         path: "login",

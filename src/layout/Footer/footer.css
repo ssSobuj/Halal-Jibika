@@ -1,13 +1,10 @@
-/* footer.css */
 
-/* Reset default styles for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Footer styles */
 footer {
   background-color: #16212a;
   color: #fff;
@@ -94,8 +91,9 @@ p {
   color: #ffc107;
 }
 
-/* Responsive Design */
 
+
+/* Responsive Design */
 @media (max-width: 450px) {
   .footer-container {
     flex-direction: column;

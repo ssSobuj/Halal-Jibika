@@ -11,20 +11,24 @@ import Loading from "../../../componets/loaading/Loading";
 
 export default function Login() {
   useEffect(() => {
-    document.title = "SingIn || Halal Jibika";
-  });
+    document.title = "Sign In || Halal Jibika";
+  }, []);
+
   const navigate = useNavigate();
 
+  // Firebase hook for email/password authentication
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
   const location = useLocation();
-
   let from = location?.state?.from?.pathname || "/";
+
+  let errorElement;
 
   if (loading) {
     return <Loading />;
   }
+
   if (error) {
     errorElement = (
       <p style={{ backgroundColor: "red", width: "600px", color: "wheat" }}>
@@ -40,7 +44,7 @@ export default function Login() {
     });
   }
 
-  const hadnleSingInData = async (e) => {
+  const handleSignInData = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -53,12 +57,12 @@ export default function Login() {
         <div className="inner-container">
           <h2 className="title">Sign In</h2>
           <p>
-            You Do not have an acount{" "}
-            <Link to={"/singup"}>
-              <b>Create an aconut</b>
-            </Link>{" "}
+            You do not have an account{" "}
+            <Link to={"/signup"}>
+              <b>Create an account</b>
+            </Link>
           </p>
-          <form className="login-form" onSubmit={hadnleSingInData}>
+          <form className="login-form" onSubmit={handleSignInData}>
             <label htmlFor="username">Username:</label>
             <input
               required

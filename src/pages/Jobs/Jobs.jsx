@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
-import {
-  Link,
-  useLoaderData,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import "./jobs.css";
@@ -26,7 +22,8 @@ export default function Jobs() {
   useEffect(() => {
     document.title = "Jobs || Halal Jibika";
   }, []);
-  //delet data.............................
+
+  //delet job
   const handleDeleteJob = async (jobId) => {
     try {
       if (!user) {
@@ -60,8 +57,8 @@ export default function Jobs() {
       console.error("Error:", error);
     }
   };
-  //delet job.............................
-  //edit job................................
+
+  //eidit job
   const handleEditJob = (jobId) => {
     if (!user) {
       naviget("/singup");
@@ -74,8 +71,6 @@ export default function Jobs() {
     }
   };
 
-  //edit job................................
-
   return (
     <>
       <div className="cards-container">
@@ -85,7 +80,6 @@ export default function Jobs() {
         <div className="cards">
           {jobs &&
             jobs.map((job) => (
-              // eslint-disable-next-line react/jsx-key
               <div className="card" key={job.id}>
                 <Link to={`/job/${job.id}`}>
                   <div className="card-img">

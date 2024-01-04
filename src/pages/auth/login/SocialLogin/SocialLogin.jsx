@@ -10,17 +10,23 @@ import { toast } from "react-toastify";
 import Loading from "../../../../componets/loaading/Loading";
 
 export default function SocialLogin() {
+  // Google Sign-In hook
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+
+  // GitHub Sign-In hook
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
 
+  // React Router hook for navigation
   const navigate = useNavigate();
 
+  // Display loading spinner while signing in
   if (googleLoading || githubLoading) {
     return <Loading></Loading>;
   }
 
+  // Display error message if sign-in fails
   let errorElement;
   if (googleError || githubError) {
     errorElement = (
@@ -29,6 +35,8 @@ export default function SocialLogin() {
       </p>
     );
   }
+
+  // Redirect to the home page upon successful sign-in
   if (googleUser || githubUser) {
     navigate("/");
     toast.success(`Log In Successfully`, {
@@ -38,6 +46,7 @@ export default function SocialLogin() {
 
   return (
     <>
+      {/* Social login buttons */}
       <div className="GoogleAndGithub">
         <button className="git" onClick={() => signInWithGoogle()}>
           Sign up with <FaGoogle className="gogloe" />

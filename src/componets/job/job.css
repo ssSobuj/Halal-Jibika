@@ -50,6 +50,11 @@
   display: flex;
   gap: 20px;
 }
+.single-card-btn button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .single-card-btn button {
   width: 50%;
 }
@@ -122,7 +127,6 @@
   }
 }
 
-/* Media query for medium-sized screens (min-width: 451px) and (max-width: 850px) */
 @media screen and (min-width: 451px) and (max-width: 850px) {
   .job-container {
     padding-top: 60px;

@@ -13,7 +13,7 @@ export default function Footer() {
               <h4>Our vision</h4>
               <p>
                 Our vision is “Keep hardworking, take patients and make yourself
-                always ready for jobs” "Embrace challenges, persevere through
+                always ready for jobs” Embrace challenges, persevere through
                 difficulties, and stay dedicated to your goals.
               </p>
             </div>

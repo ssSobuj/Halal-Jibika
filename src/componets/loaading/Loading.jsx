@@ -1,9 +1,17 @@
+import { RotatingLines } from "react-loader-spinner";
 
 export default function Loading() {
-  <style>
-    
-  </style>
   return (
-    <h1>...............Loading</h1>
-  )
+    <RotatingLines
+      visible={true}
+      height="96"
+      width="96"
+      color="green"
+      strokeWidth="5"
+      animationDuration="0.75"
+      ariaLabel="rotating-lines-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+    />
+  );
 }

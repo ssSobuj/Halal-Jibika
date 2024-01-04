@@ -4,9 +4,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function EditJob() {
+  // Accessing global context for job editing
   const { editJob } = useContext(glovalContext);
   const navigate = useNavigate();
 
+  // State to manage edited job details
   const [editedJob, setEditedJob] = useState({
     title: editJob?.title || "",
     logo: editJob?.logo || "",
@@ -15,12 +17,14 @@ export default function EditJob() {
     description: editJob?.description || "",
   });
 
+  // Handle job edit form submission
   const handleEditJobSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // Send a PUT request to update the job details
       await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
-      navigate("/jobs");
+      navigate("/jobs"); // Redirect to the jobs page after successful edit
     } catch (error) {
       console.error("Error:", error);
     }

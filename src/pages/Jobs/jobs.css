@@ -177,7 +177,6 @@
   }
 }
 
-/* Media query for screens up to 850px */
 @media screen and (min-width: 451px) and (max-width: 850px) {
   .cards-container {
     padding: 100px 20px 50px 20px;

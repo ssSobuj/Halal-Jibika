@@ -15,14 +15,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.config";
 import { getItemFromLocalstorage } from "./../../utilitis/utilitis";
 
+// Create a global context
 export const glovalContext = createContext();
-export default function MainLayut() {
+
+export default function MainLayout() {
+  // React Router hooks
   const navigetion = useNavigation();
-  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
+  // Firebase authentication hook
+  const [user] = useAuthState(auth);
+
+  // State for editing a job
   const [editJob, setEditJob] = useState(null);
 
+  // State for storing applied jobs and favorite jobs
   const [applyJobs, setApplyJobs] = useState(
     getItemFromLocalstorage("applyJobs") || []
   );
@@ -30,15 +37,20 @@ export default function MainLayut() {
     getItemFromLocalstorage("favoritJobs") || []
   );
 
+  // Save applied jobs to local storage when the state changes
   useEffect(() => {
     localStorage.setItem("applyJobs", JSON.stringify(applyJobs));
   }, [applyJobs]);
 
+  // Save favorite jobs to local storage when the state changes
   useEffect(() => {
     localStorage.setItem("favoritJobs", JSON.stringify(favoritJobs));
   }, [favoritJobs]);
 
+  // Check if a job is already marked as favorite
   const isfavorit = (id) => favoritJobs.some((favJob) => favJob.id === id);
+
+  // Add or remove a job from favorites
   const addTofavorit = (job) => {
     if (!user) {
       navigate("/login");
@@ -49,14 +61,17 @@ export default function MainLayut() {
         setFavoritJobs((prev) => prev.filter((item) => item.id !== job.id));
       } else {
         setFavoritJobs([...favoritJobs, job]);
-        toast.success(`Job Add successfull go to favorit page`, {
+        toast.success(`Job Add successful. Go to the favorite page`, {
           toastId: "success1",
         });
       }
     }
   };
 
+  // Check if a job is already marked as applied
   const isApply = (id) => applyJobs.some((appJob) => appJob.id === id);
+
+  // Add or remove a job from applied jobs
   const addApply = (job) => {
     if (!user) {
       navigate("/login");
@@ -68,7 +83,7 @@ export default function MainLayut() {
       } else {
         setApplyJobs([...applyJobs, job]);
         toast.success(
-          `You Applied successfully. please go to the applied page`,
+          `You Applied successfully. Please go to the applied page`,
           {
             toastId: "success1",
           }
@@ -77,12 +92,9 @@ export default function MainLayut() {
     }
   };
 
-  /*   useEffect(() => {
-    console.log(applyJobs);
-  }, [applyJobs]); */
-
   return (
     <div>
+      {/* Provide the global context to components */}
       <glovalContext.Provider
         value={{
           addTofavorit,
@@ -97,10 +109,19 @@ export default function MainLayut() {
           user,
         }}
       >
+        {/* Header component */}
         <Header />
+
+        {/* Scroll restoration component */}
         <ScrollRestoration />
+
+        {/* Display loading component while navigating */}
         <div>{navigetion.state === "loading" ? <Loading /> : <Outlet />}</div>
-        <ToastContainer />
+
+        {/* Toast notifications container */}
+        <ToastContainer autoClose={1000} />
+
+        {/* Footer component */}
         <Footer />
       </glovalContext.Provider>
     </div>

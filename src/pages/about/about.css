@@ -100,10 +100,9 @@ a:hover {
     text-align: justify;
     font-size: 22px;
   }
-  .about-page header{
+  .about-page header {
     display: flex;
     font-size: 20px;
     margin-bottom: 30px;
   }
-
 }

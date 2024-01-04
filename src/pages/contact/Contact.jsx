@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import "./contact.css";
-import Feverite from "../Feverite/Feverite";
 
 export default function Contact() {
+  // Set document title on component mount
   useEffect(() => {
     document.title = "Contact || Halal Jibika";
   });
+
+  // Handle input focus to scroll when focused
   const handleInputFocus = () => {
     window.scrollTo({
       top: window.scrollY + 200,
       behavior: "smooth",
     });
   };
-
   return (
     <>
       <div className="contact-container">
@@ -68,7 +69,7 @@ export default function Contact() {
             placeholder="Type your message"
           ></textarea>
 
-          <button type="submit">Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     </>

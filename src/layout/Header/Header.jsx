@@ -28,8 +28,6 @@ export default function Header() {
         <div className="container">
           <div className="logo">
             <Link>HALAL JIBIKA</Link>
-            {/* <img src="/public/logo-removebg.png" alt="" />
-             */}
           </div>
           <div className="menu-icon" onClick={handleShowNavbar}>
             <AiOutlineMenuFold />
@@ -61,10 +59,10 @@ export default function Header() {
               <div className="signup-signin">
                 {user ? (
                   <>
-                    <li className="last-li">
+                    <li onClick={handleShowNavbar} className="last-li">
                       <Link onClick={logOut}>Sign Out</Link>
                     </li>
-                    <li className="user-logo">
+                    <li onClick={handleShowNavbar} className="user-logo">
                       {user?.photoURL ? (
                         <img src={user?.photoURL} alt="" />
                       ) : (
@@ -74,10 +72,10 @@ export default function Header() {
                   </>
                 ) : (
                   <>
-                    <li className="last-li">
+                    <li onClick={handleShowNavbar} className="last-li">
                       <NavLink to={"./login"}>Sign In</NavLink>
                     </li>
-                    <li>
+                    <li onClick={handleShowNavbar}>
                       <NavLink to={"./singup"}>Sign Up</NavLink>
                     </li>
                   </>

@@ -2,13 +2,17 @@ import { useContext } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import "./apply.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Applied() {
   const { applyJobs, setApplyJobs, isApply, addApply } =
     useContext(glovalContext);
 
+  const navigete = useNavigate();
+
   const removeAllApply = () => {
     setApplyJobs([]);
+    navigete(-1);
     toast.warn("all aplied jobs are delet");
   };
 

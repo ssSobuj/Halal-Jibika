@@ -24,7 +24,6 @@
   font-size: 3em;
   color: #000;
   color: #174e17;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
   font-weight: 600;
   display: inline;
   background: -webkit-linear-gradient(#06c606, #017f21);
@@ -41,10 +40,7 @@
   background: -webkit-linear-gradient(#030503, #3c2828);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* color: #DEC74F;
-  color: #fff; */
   padding: 20px;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 .home-cards-container {
   align-items: center;
@@ -75,6 +71,23 @@
   border: none;
   outline: none;
   width: 150px;
+}
+
+.home-cards-container .explor-button {
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 15px 12px;
+  font-size: 16px;
+  background-color: #008000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: none;
+  outline: none;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .home-container .hero-section .explor-button:hover {

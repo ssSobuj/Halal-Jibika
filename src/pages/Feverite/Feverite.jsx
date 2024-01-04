@@ -2,16 +2,24 @@ import { useContext, useEffect } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./Feverite.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.config";
 
 export default function Feverite() {
   const navigate = useNavigate();
+
+  // Set document title on component mount
   useEffect(() => {
     document.title = "Feverite || Halal Jibika";
   }, []);
-  const { favoritJobs, isfavorit, addTofavorit } = useContext(glovalContext);
 
+  // Extracting context and user information
+  const { favoritJobs, isfavorit, addTofavorit, isApply, addApply } =
+    useContext(glovalContext);
+  const user = useAuthState(auth);
+
+  // Redirect to home page if there are no favorite jobs
   if (favoritJobs.length < 1) {
     navigate("/");
   }
@@ -47,7 +55,12 @@ export default function Feverite() {
                       </p>
                     </Link>
                     <div className="card-button">
-                      <button>Apply</button>
+                      <button
+                        disabled={isApply(job.id) && user}
+                        onClick={() => addApply(job)}
+                      >
+                        {isApply(job.id) && user ? "Applied" : "Apply"}
+                      </button>
                       <div className="react-icon">
                         {!isfavorit(job.id) ? (
                           <FaRegHeart

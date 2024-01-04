@@ -26,8 +26,6 @@ const PrivacyPolicy = () => {
           principles.
         </p>
 
-        {/* Add more sections based on your specific data processing practices */}
-
         <h2>Security</h2>
         <p>
           We take appropriate measures to protect your information from

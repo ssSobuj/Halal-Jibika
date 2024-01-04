@@ -1,16 +1,13 @@
-import { useNavigate, useParams, useRouteLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import "./job.css";
 import { useContext } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
+
 export default function Job() {
-  const id = +useParams().id;
-  console.log(useParams());
-  const jobdata = useRouteLoaderData("root").find((job) => job.id === id);
+  const jobdata = useLoaderData();
   const navigate = useNavigate();
   const { isApply, addApply } = useContext(glovalContext);
-  
 
-  console.log(jobdata);
   const goBack = () => {
     navigate(-1);
   };
@@ -58,7 +55,10 @@ export default function Job() {
               </div>
             </div>
             <div className="single-card-btn">
-              <button disabled={isApply(jobdata.id)} onClick={() => addApply(jobdata)}>
+              <button
+                disabled={isApply(jobdata.id)}
+                onClick={() => addApply(jobdata)}
+              >
                 {!isApply(jobdata.id) ? "Apply" : "Applied"}
               </button>{" "}
               <button onClick={goBack}>Go Back</button>
