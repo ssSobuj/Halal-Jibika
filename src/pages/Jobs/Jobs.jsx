@@ -9,10 +9,11 @@ import { toast } from "react-toastify";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 import auth from "../../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Swal from "sweetalert2";
 
 export default function Jobs() {
   const [user] = useAuthState(auth);
-  const data = useRouteLoaderData("root");  
+  const data = useRouteLoaderData("root");
   const [jobs, setJobs] = useState(data);
   const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
     useContext(glovalContext);
@@ -28,8 +29,28 @@ export default function Jobs() {
         naviget("/singup");
         toast.warn(`Please Sign In First`);
       } else {
-        await axios.delete(`http://localhost:9000/jobs/${jobId}`);
-        setJobs(jobs.filter((data) => data.id !== jobId));
+        // Show SweetAlert confirmation dialog
+        const result = await Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#F60002",
+          cancelButtonColor: "#00321F",
+          confirmButtonText: "Yes, delete it!",
+        });
+
+        // If the user confirms, proceed with deletion
+        if (result.isConfirmed) {
+          await axios.delete(`http://localhost:9000/jobs/${jobId}`);
+          setJobs(jobs.filter((data) => data.id !== jobId));
+          // Show success message with SweetAlert
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your job has been deleted.",
+            icon: "success",
+          });
+        }
       }
     } catch (error) {
       console.error("Error:", error);
