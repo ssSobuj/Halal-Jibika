@@ -7,7 +7,6 @@ import Contact from "../pages/contact/Contact";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/auth/login/Login";
 import Sinup from "../pages/auth/singup/Sinup";
-import PrivateRoutes from "./PrivateRoutes";
 import Feverite from "../pages/Feverite/Feverite";
 import Jobs from "../pages/Jobs/Jobs";
 import PrivacyPolicy from "../componets/PrivacyPolicy/PrivacyPolicy";
@@ -56,11 +55,8 @@ export const routes = createBrowserRouter([
       },
       {
         path: "jobs",
-        element: (
-          <PrivateRoutes>
-            <Jobs />
-          </PrivateRoutes>
-        ),
+        element: <Jobs />,
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "login",

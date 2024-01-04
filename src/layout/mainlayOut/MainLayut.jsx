@@ -13,7 +13,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { createContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.config";
-// import { getItemFromLocalstorage } from "./../../utilitis/utilitis";
 import { getItemFromLocalstorage } from "./../../utilitis/utilitis";
 
 export const glovalContext = createContext();
@@ -23,19 +22,21 @@ export default function MainLayut() {
   const navigate = useNavigate();
 
   const [editJob, setEditJob] = useState(null);
+
   const [applyJobs, setApplyJobs] = useState(
-    getItemFromLocalstorage('applyJobs') || []
+    getItemFromLocalstorage("applyJobs") || []
   );
   const [favoritJobs, setFavoritJobs] = useState(
     getItemFromLocalstorage("favoritJobs") || []
   );
 
   useEffect(() => {
-    localStorage.setItem("favoritJobs", JSON.stringify(favoritJobs));
-  }, [favoritJobs]);
-  useEffect(() => {
     localStorage.setItem("applyJobs", JSON.stringify(applyJobs));
   }, [applyJobs]);
+
+  useEffect(() => {
+    localStorage.setItem("favoritJobs", JSON.stringify(favoritJobs));
+  }, [favoritJobs]);
 
   const isfavorit = (id) => favoritJobs.some((favJob) => favJob.id === id);
   const addTofavorit = (job) => {

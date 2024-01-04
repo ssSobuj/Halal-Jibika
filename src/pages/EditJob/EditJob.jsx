@@ -21,7 +21,6 @@ export default function EditJob() {
     try {
       await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
       navigate("/jobs");
-      window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }

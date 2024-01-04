@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useRouteLoaderData } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { FaEdit, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import "./jobs.css";
@@ -13,7 +17,7 @@ import Swal from "sweetalert2";
 
 export default function Jobs() {
   const [user] = useAuthState(auth);
-  const data = useRouteLoaderData("root");
+  const data = useLoaderData();
   const [jobs, setJobs] = useState(data);
   const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
     useContext(glovalContext);

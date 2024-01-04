@@ -21,8 +21,6 @@ export default function Header() {
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
-  
-
 
   return (
     <>

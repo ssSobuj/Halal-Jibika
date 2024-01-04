@@ -102,19 +102,26 @@ export default function Home() {
                         {/* <button onClick={() => addApply(job)}>Apply</button> */}
 
                         <button
-                          disabled={isApply(job.id)}
+                          disabled={isApply(job.id) && user}
                           onClick={() => addApply(job)}
                         >
-                          {!isApply(job.id) ? "Apply" : "Applied"}
+                          {isApply(job.id) && user ? "Applied" : "Apply"}
                         </button>
 
-                        {!isfavorit(job.id) ? (
-                          <FaRegHeart
-                            className="love"
-                            onClick={() => addTofavorit(job)}
-                          />
+                        {isfavorit(job.id) ? (
+                          user ? (
+                            <FaHeart
+                              className="love"
+                              onClick={() => addTofavorit(job)}
+                            />
+                          ) : (
+                            <FaRegHeart
+                              className="love"
+                              onClick={() => addTofavorit(job)}
+                            />
+                          )
                         ) : (
-                          <FaHeart
+                          <FaRegHeart
                             className="love"
                             onClick={() => addTofavorit(job)}
                           />

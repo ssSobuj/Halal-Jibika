@@ -31,7 +31,6 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Company Contact Information */}
           <div className="contact-card">
             <h3>CEO Contact</h3>
             <p>
