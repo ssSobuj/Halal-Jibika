@@ -4,7 +4,9 @@ import { useContext } from "react";
 import { glovalContext } from "../../layout/mainlayOut/MainLayut";
 
 export default function Job() {
-  const jobdata = useLoaderData();
+  const  jobs  = useLoaderData();
+
+  console.log();
   const navigate = useNavigate();
   const { isApply, addApply } = useContext(glovalContext);
 
@@ -14,25 +16,25 @@ export default function Job() {
 
   return (
     <>
-      {jobdata && (
+      {jobs && (
         <div className="job-container">
           <div className="single-card">
             <div className="first-section">
               <div className="job-img">
-                <img src={jobdata.logo} alt="" />
+                <img src={jobs.logo} alt="" />
               </div>
               <div className="job-content">
                 <h4>
-                  <b>Company Name:</b> {jobdata.companyName}
+                  <b>Company Name:</b> {jobs.companyName}
                 </h4>
                 <p>
-                  <b>Job Title:</b> {jobdata.title}
+                  <b>Job Title:</b> {jobs.title}
                 </p>
                 <p>
-                  <b>Job Positon:</b> {jobdata.position}
+                  <b>Job Positon:</b> {jobs.position}
                 </p>
                 <p>
-                  <b>Job Dsc:</b> {jobdata.description}
+                  <b>Job Dsc:</b> {jobs.description}
                 </p>
               </div>
             </div>
@@ -56,10 +58,10 @@ export default function Job() {
             </div>
             <div className="single-card-btn">
               <button
-                disabled={isApply(jobdata.id)}
-                onClick={() => addApply(jobdata)}
+                disabled={isApply(jobs.id)}
+                onClick={() => addApply(jobs)}
               >
-                {!isApply(jobdata.id) ? "Apply" : "Applied"}
+                {!isApply(jobs.id) ? "Apply" : "Applied"}
               </button>{" "}
               <button onClick={goBack}>Go Back</button>
             </div>
