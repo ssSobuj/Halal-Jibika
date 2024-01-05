@@ -77,8 +77,8 @@ export default function Home() {
             <h1>Latest Jobs</h1>
           </div>
           <div className="cards">
-            {jobdetails.jobs &&
-              jobdetails.jobs.slice(0, 4).map((job) => (
+            {jobdetails &&
+              jobdetails.slice(0, 4).map((job) => (
                 <div className="card" key={job.id}>
                   <>
                     <div className="card-img">

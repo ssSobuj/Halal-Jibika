@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
     path: "/",
     element: <App />,
     id: "root",
-    loader: () => fetch("/public/api/db_jobs.json"),
+    loader: () => fetch("http://localhost:9000/jobs"),
     children: [
       {
         path: "/",
@@ -57,12 +57,13 @@ export const routes = createBrowserRouter([
       {
         path: "jobs",
         element: <Jobs />,
-        loader: () => fetch("/public/api/db_jobs.json"),
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "job/:id",
         element: <Job />,
-        loader: ({ params }) => fetch(`/public/api/db_jobs.json/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:9000/jobs/${params.id}`),
       },
       {
         path: "login",
