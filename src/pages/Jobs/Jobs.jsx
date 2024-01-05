@@ -14,10 +14,7 @@ import Swal from "sweetalert2";
 export default function Jobs() {
   const [user] = useAuthState(auth);
   const data = useLoaderData();
-  const {jobs} = data
-
-  const [jobsData, setJobs] = useState(jobs);
-
+  const [jobs, setJobs] = useState(data);
   const { setEditJob, isfavorit, addTofavorit, isApply, addApply } =
     useContext(glovalContext);
   const naviget = useNavigate();
@@ -47,7 +44,7 @@ export default function Jobs() {
         // If the user confirms, proceed with deletion
         if (result.isConfirmed) {
           await axios.delete(`http://localhost:9000/jobs/${jobId}`);
-          setJobs(jobsData.filter((data) => data.id !== jobId));
+          setJobs(jobs.filter((data) => data.id !== jobId));
           // Show success message with SweetAlert
           Swal.fire({
             title: "Deleted!",
@@ -81,10 +78,9 @@ export default function Jobs() {
           <h1>Choose Your Dream Jobs</h1>
         </div>
         <div className="cards">
-          {jobsData &&
-            jobsData.map((job) => (
-       
-              <div className="card" key={job.id}>      
+          {jobs &&
+            jobs.map((job) => (
+              <div className="card" key={job.id}>
                 <Link to={`/job/${job.id}`}>
                   <div className="card-img">
                     <img src={job.logo} alt="" />
