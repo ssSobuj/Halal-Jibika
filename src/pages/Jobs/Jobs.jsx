@@ -84,8 +84,7 @@ export default function Jobs() {
           {jobsData &&
             jobsData.map((job) => (
        
-              <div className="card" key={job.id}>
-                     {console.log(job)}
+              <div className="card" key={job.id}>      
                 <Link to={`/job/${job.id}`}>
                   <div className="card-img">
                     <img src={job.logo} alt="" />
