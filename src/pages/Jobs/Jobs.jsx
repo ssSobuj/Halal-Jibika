@@ -43,7 +43,9 @@ export default function Jobs() {
 
         // If the user confirms, proceed with deletion
         if (result.isConfirmed) {
-          await axios.delete(`http://localhost:9000/jobs/${jobId}`);
+          await axios.delete(
+            `https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs/${jobId}`
+          );
           setJobs(jobs.filter((data) => data.id !== jobId));
           // Show success message with SweetAlert
           Swal.fire({

@@ -23,7 +23,7 @@ export default function EditJob() {
 
     try {
       // Send a PUT request to update the job details
-      await axios.put(`http://localhost:9000/jobs/${editJob?.id}`, editedJob);
+      await axios.put(`https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs/${editJob?.id}`, editedJob);
       navigate("/jobs"); // Redirect to the jobs page after successful edit
     } catch (error) {
       console.error("Error:", error);

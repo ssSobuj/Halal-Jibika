@@ -20,7 +20,8 @@ export const routes = createBrowserRouter([
     path: "/",
     element: <App />,
     id: "root",
-    loader: () => fetch("http://localhost:9000/jobs"),
+    loader: () =>
+      fetch("https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs"),
     children: [
       {
         path: "/",
@@ -57,13 +58,18 @@ export const routes = createBrowserRouter([
       {
         path: "jobs",
         element: <Jobs />,
-        loader: () => fetch("http://localhost:9000/jobs"),
+        loader: () =>
+          fetch(
+            "https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs"
+          ),
       },
       {
         path: "job/:id",
         element: <Job />,
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/jobs/${params.id}`),
+          fetch(
+            `https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs/${params.id}`
+          ),
       },
       {
         path: "login",

@@ -16,7 +16,7 @@ export default function PostJob() {
 
   const postData = async () => {
     try {
-      await axios.post("http://localhost:9000/jobs", postJobs);
+      await axios.post("https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs", postJobs);
       navigate("/jobs");
     } catch (error) {
       console.error("Error:", error);
