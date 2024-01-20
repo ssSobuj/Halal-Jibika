@@ -63,7 +63,7 @@ export default function Jobs() {
   //eidit job
   const handleEditJob = (jobId) => {
     if (!user) {
-      naviget("/singup");
+      naviget("/login");
       toast.warn(`Please Sign In First`);
     } else {
       const jobToEdit = jobs.find((job) => job.id === jobId);
