@@ -20,8 +20,7 @@ export const routes = createBrowserRouter([
     path: "/",
     element: <App />,
     id: "root",
-    loader: () =>
-      fetch("https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs"),
+    loader: () => fetch("https://halal-backend.onrender.com/jobs"),
     children: [
       {
         path: "/",
@@ -58,18 +57,13 @@ export const routes = createBrowserRouter([
       {
         path: "jobs",
         element: <Jobs />,
-        loader: () =>
-          fetch(
-            "https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs"
-          ),
+        loader: () => fetch("https://halal-backend.onrender.com/jobs"),
       },
       {
         path: "job/:id",
         element: <Job />,
         loader: ({ params }) =>
-          fetch(
-            `https://my-json-server.typicode.com/ssSobuj/Halal-Jibika/jobs/${params.id}`
-          ),
+          fetch(`https://halal-backend.onrender.com/jobs/${params.id}`),
       },
       {
         path: "login",
