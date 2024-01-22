@@ -21,7 +21,7 @@ export default function Home() {
 
   const handleJobRouting = () => {
     if (!user) {
-      navigete("/singup");
+      navigete("/login");
       toast.warn(`Please Sign In First`);
     } else {
       navigete("/jobs");
@@ -30,7 +30,7 @@ export default function Home() {
   };
   const handlePostRouting = () => {
     if (!user) {
-      navigete("/singup");
+      navigete("/login");
       toast.warn(`Please Sign In First`);
     } else {
       navigete("/postjob");
